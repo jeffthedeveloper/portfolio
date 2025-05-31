@@ -1,23 +1,29 @@
-/* Variáveis e Estilos Base - Atualizados */
+/* ==========================================================================
+   1. Variáveis Globais e Estilos Base
+   ========================================================================== */
 :root {
-  --primary: #000080;
+  --primary-color: #000080;
   /* Azul Marinho */
-  --secondary: #4169E1;
+  --secondary-color: #4169E1;
   /* Azul Royal */
-  --dark: #000000;
+  --dark-color: #000000;
   /* Preto */
-  --light: #f0f4f8;
-  /* Um cinza mais claro/off-white para melhor contraste */
-  --gray: #cccccc;
-  /* Cinza para bordas e elementos secundários */
-  --card-bg: #ffffff;
-  /* Fundo do card branco para destaque */
+  --light-color: #f0f4f8;
+  /* Cinza mais claro/off-white */
+  --gray-color: #cccccc;
+  /* Cinza para bordas */
+  --card-bg-color: #ffffff;
+  /* Fundo do card */
+  --text-color: #333333;
+  /* Cor de texto principal */
+  --link-color: var(--secondary-color);
+  --link-hover-color: var(--primary-color);
+  --button-text-color: #ffffff;
   --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.15);
-  --text-color: var(--dark);
-  --link-color: var(--secondary);
-  --link-hover-color: var(--primary);
-  --button-text-color: #ffffff;
+  --nav-height: 60px;
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
@@ -27,156 +33,122 @@
 }
 
 body {
-  font-family: 'Press Start 2P', 'Segoe UI', Tahoma, Geneva, Verdana, Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  /* REDUZIDO do padrão */
-  background-color: var(--light);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  background-color: var(--light-color);
   color: var(--text-color);
   line-height: 1.7;
 }
 
-/* Hierarquia de Fontes Geral */
+/* ==========================================================================
+   2. Tipografia e Estilos Gerais de Conteúdo
+   ========================================================================== */
 h1,
-.main-title {
-  /* .main-title é específico para o nome no topo */
-  font-size: 28px;
-  font-family: 'Press Start 2P', cursive;
-  margin-bottom: 20px;
-  color: var(--primary);
-  text-shadow: 1px 1px 0px var(--gray);
-  text-align: center;
-}
-
-h2 {
-  /* Títulos de Seção */
-  font-family: 'Press Start 2P', cursive;
-  font-size: 22px;
-  margin: 35px 0 25px;
-  text-shadow: 2px 2px 0px var(--gray);
-  color: var(--primary);
-  text-align: center;
-}
-
+h2,
 h3,
-.subtitle {
-  /* Subtítulos, como a designação profissional e títulos de categoria de skill */
-  font-size: 18px;
-  text-align: center;
-  color: var(--dark);
-  font-family: inherit;
-  /* Herda Press Start 2P se não sobrescrito */
+h4,
+h5,
+h6 {
+  font-family: var(--font-pixel);
+  color: var(--primary-color);
+  margin-top: 0;
+  /* Reset margin-top para headings */
+  margin-bottom: 0.75em;
+  /* Margem inferior padrão para headings */
 }
 
-h3.subtitle {
-  /* Específico para a designação profissional */
-  font-size: 1.1rem;
-  /* Equivalente a ~17.6px se 1rem=16px, ajuste se necessário */
+.main-title {
+  /* Estilo para H1 principal */
+  font-size: 2rem;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 0px var(--gray-color);
+  text-align: center;
+}
+
+.section-title {
+  /* Estilo para H2 de seção */
+  font-size: 1.6rem;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 0px var(--gray-color);
+  text-align: center;
+}
+
+.subtitle {
+  /* Estilo para H3 no perfil */
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  text-align: center;
   color: var(--text-color);
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
-/* Títulos de Categoria de Skill (já estilizados em .skills-category h4) */
-/* Títulos de Card (projeto, certificação, timeline) */
+.category-title {
+  /* Estilo para H3 nas categorias de skills */
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  text-align: left;
+}
+
 .project-card h5,
 .timeline-content-h h4,
+/* H4 usado na timeline */
 .certification-card h5 {
-  color: var(--primary);
-  margin-bottom: 8px;
-  font-size: 1.05em;
-  /* ~12.6px */
-  font-weight: 600;
-  text-align: left;
-  /* Geralmente melhor para cards */
-}
-
-.project-card h5 {
+  font-family: var(--font-pixel);
+  /* Garantir fonte pixel para estes títulos de card */
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  font-weight: normal;
+  /* Resetar bold se a tag já for (h4, h5) */
   text-align: center;
 }
-
-/* Manter centralizado para project-card */
-.timeline-content-h h4 {
-  text-align: center;
-}
-
 
 p,
-li,
+li {
+  font-size: 1em;
+  /* Relativo ao font-size do body (14px) */
+  color: var(--text-color);
+  margin-bottom: 10px;
+  /* Espaçamento padrão para parágrafos e itens de lista */
+}
+
+.sobre-mim-paragrapgh {
+  /* Parágrafo específico da seção sobre mim */
+  font-size: 1rem;
+  /* 14px */
+  text-align: justify;
+  line-height: 1.6;
+  /* Já definido no body, mas pode ser específico aqui */
+}
+
+/* Descrições e textos menores em cards */
 .project-description,
 .timeline-content-h p,
-.certification-card p,
-.skill-name {
-  font-size: 12px;
-  /* corpo do texto, descrições, nomes de skill */
-  color: var(--text-color);
-}
-
-.project-description {
-  font-size: 0.9em;
-}
-
-/* ~10.8px */
-.timeline-content-h p,
+/* Parágrafos dentro da timeline */
 .certification-card p {
-  font-size: 0.9em;
+  /* Parágrafos dentro de cards de certificação */
+  font-size: 0.9rem;
+  /* ~12.6px */
+  line-height: 1.5;
 }
 
-/* ~10.8px */
 .skill-name {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 10px 0;
+  min-height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-/* ~9.6px */
-
-
-.pixel-font {
-  font-family: 'Press Start 2P', cursive;
-  letter-spacing: 1px;
-  line-height: 1.8;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 25px;
-  /* Padding lateral aplicado aqui para todo o container */
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Adiciona padding vertical às seções e remove o padding lateral redundante se já está no .container */
-section {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-/* Wrapper para conteúdo interno da seção, para controle de margem/padding se necessário */
-.section-content {
-  padding-left: 15px;
-  /* Padding interno para seções específicas */
-  padding-right: 15px;
-}
-
-/* Remove padding duplicado se .section-content está dentro de um .container que já tem padding */
-.container>section>.section-content {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Garante que o .container em si não tenha padding vertical excessivo se as seções já têm */
-div.container {
-  padding-top: 5px;
-  /* Pequeno padding no topo do container geral */
-  padding-bottom: 5px;
-  /* Pequeno padding na base do container geral */
-}
-
 
 a {
   color: var(--link-color);
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 a:hover {
@@ -187,14 +159,53 @@ a:hover {
 hr {
   border: 0;
   height: 1px;
-  background-color: var(--gray);
-  margin: 35px 0;
+  background-color: var(--gray-color);
+  margin: 40px 0;
 }
 
-/* Navegação */
+/* ==========================================================================
+   3. Layout Principal (Container, Seções)
+   ========================================================================== */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.section-subtitle {
+  /* Subtítulo genérico para seções */
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  font-family: var(--font-sans);
+  /* Para subtítulos descritivos */
+}
+
+.certifications-footer {
+  /* Texto de rodapé na seção de certificações */
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   4. Navegação (Desktop e Mobile)
+   ========================================================================== */
 .nav-container {
-  background-color: var(--dark);
-  padding: 12px 0;
+  background-color: var(--dark-color);
+  min-height: var(--nav-height);
+  display: flex;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -205,54 +216,134 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 960px;
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0 20px;
 }
 
 .nav-logo {
   color: #ffffff;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1rem;
-  /* Aumentado um pouco */
+  font-family: var(--font-pixel);
+  font-size: 1.1rem;
   text-decoration: none;
 }
 
 .nav-logo:hover {
+  color: var(--secondary-color);
   text-decoration: none;
-  color: var(--secondary);
 }
 
 .nav-links {
   display: flex;
   list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
-  margin-left: 18px;
+  margin-left: 15px;
+}
+
+.nav-links li:first-child {
+  margin-left: 0;
 }
 
 .nav-links a {
   color: #ffffff;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 5px;
-  transition: background-color 0.2s ease;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-links a:hover {
   background-color: rgba(255, 255, 255, 0.15);
+  color: var(--light-color);
   text-decoration: none;
 }
 
-/* Estilos do Menu Hambúrguer */
+/* Itens de navegação específicos para mobile/desktop (visibilidade controlada por media queries) */
+.nav-item-blog-mobile-only,
+.nav-item-contato-mobile-only {
+  display: none;
+}
+
+.nav-item-dropdown-desktop {
+  /* Controla o "Mais" no desktop */
+  position: relative;
+  display: block;
+  /* Visível por padrão, escondido no mobile via MQ */
+}
+
+.dropdown-trigger-desktop {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-trigger-desktop .arrow {
+  font-size: 0.7em;
+  margin-left: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-item-dropdown-desktop:hover .dropdown-trigger-desktop .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu-desktop {
+  display: none;
+  /* Mostrado no hover do pai */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--dark-color);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  z-index: 1005;
+  min-width: 150px;
+}
+
+.nav-item-dropdown-desktop:hover .dropdown-menu-desktop {
+  display: block;
+}
+
+.dropdown-menu-desktop li {
+  margin-left: 0;
+  width: 100%;
+}
+
+.dropdown-menu-desktop li a {
+  padding: 10px 15px;
+  display: block;
+  font-size: 0.85rem;
+  /* Consistente com outros links da nav */
+}
+
+.dropdown-menu-desktop li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Botão Hambúrguer (Mobile Menu Toggle) */
 .menu-toggle {
   display: none;
+  /* Visível apenas em mobile via MQ */
   background: none;
   border: none;
   cursor: pointer;
   padding: 10px;
-  z-index: 1001;
+  margin-left: auto;
+  /* Empurra para a direita no mobile */
+  z-index: 1002;
+  position: relative;
 }
 
 .hamburger {
@@ -261,7 +352,7 @@ hr {
   height: 3px;
   background-color: white;
   position: relative;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .hamburger::before,
@@ -272,7 +363,7 @@ hr {
   height: 3px;
   background-color: white;
   left: 0;
-  transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, bottom 0.3s ease-in-out;
 }
 
 .hamburger::before {
@@ -283,26 +374,41 @@ hr {
   bottom: -8px;
 }
 
+.menu-toggle.active .hamburger {
+  background-color: transparent;
+}
 
+.menu-toggle.active .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active .hamburger::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+/* Botão "Contratar" */
 .btn-hire {
-  background-color: var(--secondary);
+  background-color: var(--secondary-color);
   color: var(--button-text-color);
-  padding: 9px 18px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.75rem;
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.2s ease;
   box-shadow: 0 2px 0 #2a4aaa;
-  text-decoration: none;
-  display: inline-block;
 }
 
 .btn-hire:hover {
   transform: translateY(-1px);
   box-shadow: 0 3px 0 #2a4aaa;
-  background-color: var(--primary);
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  text-decoration: none;
 }
 
 .btn-hire:active {
@@ -310,27 +416,40 @@ hr {
   box-shadow: 0 1px 0 #2a4aaa;
 }
 
-/* Seção de Perfil */
+.btn-hire-desktop {
+  display: inline-block;
+  /* Visível por padrão, escondido no mobile via MQ */
+  margin-left: 20px;
+}
+
+.nav-hire-mobile-item {
+  /* Item de lista para o botão contratar no menu mobile */
+  display: none;
+  /* Visível apenas no menu mobile ativo via MQ */
+}
+
+/* ==========================================================================
+   5. Estilos de Seção Específicos
+   ========================================================================== */
+
+/* --- Seção de Perfil --- */
 .profile-section {
   display: flex;
+  flex-direction: column;
+  /* Default para mobile */
   align-items: center;
-  justify-content: center;
-  gap: 35px;
-  margin-bottom: 20px;
-  /* Reduzido um pouco, hr fará mais separação */
-  flex-wrap: wrap;
-  padding: 20px 0;
+  gap: 25px;
+  text-align: center;
+  padding: 30px 0;
 }
 
 .profile-pic-container {
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  border: 5px solid var(--primary);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border: 5px solid var(--primary-color);
+  box-shadow: var(--shadow);
 }
 
 .profile-pic {
@@ -339,7 +458,6 @@ hr {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-  image-rendering: auto;
 }
 
 .profile-pic-container:hover .profile-pic {
@@ -347,74 +465,68 @@ hr {
 }
 
 .profile-text {
-  max-width: 650px;
-  text-align: center;
+  max-width: 700px;
 }
 
-.profile-text p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-
-.profile-text .sobre-mim-paragrapgh {
-  text-align: justify;
-}
-
+/* Lista "Sobre Mim" (usada antes da refatoração para game-menu) */
 .sobre-mim-lista {
+  /* Mantido caso seja usado em outro lugar, mas game-menu substitui na seção "Sobre" */
   list-style: none;
   padding-left: 0;
   text-align: left;
+  max-width: 650px;
+  margin: 20px auto 0 auto;
 }
 
 .sobre-mim-lista li {
-  margin-bottom: 10px;
   display: flex;
   align-items: flex-start;
-  /* Alinha ícone e texto no topo */
   font-size: 1rem;
-  /* Aumenta um pouco para melhor leitura */
+  /* 14px */
+  margin-bottom: 15px;
 }
 
 .sobre-mim-lista img.svg-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  vertical-align: middle;
-  /* Ajuste se necessário, mas flex-start no <li> ajuda */
+  /* Ícone original da lista "Sobre Mim" */
+  width: 22px;
+  height: 22px;
+  margin-right: 12px;
   flex-shrink: 0;
-  /* Impede que o ícone encolha */
+  margin-top: 2px;
 }
 
-/* Seção de Projetos em Destaque */
-.featured-projects-section {
-  text-align: center;
-  /* margin: 40px 0; Removido, section tem padding */
-}
-
-.projects-grid {
+/* --- Grids para Cards (Projetos, Certificações, Skills, Ferramentas) --- */
+.projects-grid,
+.certifications-grid,
+.skills-grid,
+.icon-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
-  margin-top: 25px;
 }
 
+/* Projetos */
+.projects-grid {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/* Mobile: 1 coluna por padrão */
 .project-card {
-  background-color: var(--card-bg);
+  background-color: var(--card-bg-color);
   border-radius: 8px;
   padding: 20px;
   box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--gray-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  text-align: center;
+  min-height: 280px;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--secondary);
+  border-color: var(--secondary-color);
 }
 
 .project-card img.project-icon {
@@ -424,358 +536,126 @@ hr {
   object-fit: contain;
 }
 
-.project-card .project-icon-placeholder {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 15px auto;
-  background-color: var(--gray);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: var(--light);
-  font-family: 'Press Start 2P', cursive;
-}
-
-.project-card h5 {
-  margin-bottom: 8px;
-  font-size: 1.05em;
-  font-weight: 600;
-  text-align: center;
-  /* Garante centralização do título do projeto */
-}
-
 .project-card p.project-description {
-  font-size: 0.9em;
-  color: var(--text-color);
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   flex-grow: 1;
-  min-height: 50px;
-  /* Ajuste a altura mínima se necessário */
 }
 
 .project-card a.project-link {
   display: inline-block;
-  padding: 8px 15px;
-  background-color: var(--secondary);
+  padding: 10px 18px;
+  background-color: var(--secondary-color);
   color: var(--button-text-color);
   border-radius: 5px;
-  font-size: 0.8em;
+  font-size: 0.85em;
   font-weight: bold;
+  /* Strong já faz isso, mas pode ser explícito */
+  font-family: var(--font-pixel);
   margin-top: auto;
 }
 
 .project-card a.project-link:hover {
-  background-color: var(--primary);
+  background-color: var(--primary-color);
   text-decoration: none;
+  color: var(--button-text-color);
 }
 
-/* Timeline Horizontal */
-.timeline-container {
-  overflow-x: auto;
-  padding: 25px 0;
-  /* margin: 35px 0; Removido, section tem padding */
-  white-space: nowrap;
-}
-
-.timeline-horizontal {
-  display: inline-flex;
-  min-width: 100%;
-  padding: 25px 0;
-  position: relative;
-}
-
-.timeline-horizontal::before {
-  content: '';
-  position: absolute;
-  height: 4px;
-  background-color: var(--primary);
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
-.timeline-item-h {
-  flex: 0 0 220px;
-  margin: 0 20px;
-  position: relative;
-  z-index: 2;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.timeline-item-h:first-child {
-  margin-left: 5px;
-}
-
-.timeline-item-h:last-child {
-  margin-right: 5px;
-}
-
-.timeline-dot {
-  width: 22px;
-  height: 22px;
-  background-color: var(--light);
-  border: 4px solid var(--primary);
-  border-radius: 50%;
-  margin: 0 auto 18px;
-  position: relative;
-  top: 50%;
-  /* Centraliza o ponto na linha da timeline */
-  transform: translateY(-50%);
-  /* Ajuste fino para centralização */
-  z-index: 3;
-  transition: background-color 0.3s ease;
-}
-
-.timeline-item-h .timeline-content-h {
-  /* Ajuste para o conteúdo ficar acima ou abaixo */
-  position: relative;
-  top: -40px;
-  /* Move o conteúdo para cima do ponto, ajuste conforme necessário */
-}
-
-/* Para alternar posição (exemplo simples, pode precisar de mais lógica ou classes) */
-.timeline-item-h:nth-child(even) .timeline-content-h {
-  top: 40px;
-  /* Move para baixo */
-}
-
-.timeline-item-h:nth-child(even) .timeline-dot {
-  /* Mantém o ponto na linha, o conteúdo se move */
-}
-
-
-.timeline-item-h:hover .timeline-dot {
-  background-color: var(--secondary);
-}
-
-.timeline-content-h {
-  background-color: var(--card-bg);
-  padding: 18px;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid var(--gray);
-  white-space: normal;
-  /* Permite que o texto quebre linha dentro do card */
-}
-
-.timeline-content-h:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-
-.timeline-content-h h4 {
-  font-size: 0.95rem;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.timeline-content-h .date {
-  font-size: 0.85em;
-  font-weight: bold;
-  color: var(--text-color);
-  display: block;
-  margin-bottom: 10px;
-}
-
-.timeline-content-h p {
-  font-size: 0.85em;
-  line-height: 1.5;
-  margin-bottom: 6px;
-}
-
-/* Seção de Certificações */
-.certifications-section {
-  text-align: center;
-  /* margin: 45px 0; Removido, section tem padding */
-}
-
-.certifications-section>p {
-  /* Parágrafo de introdução da seção */
-  margin-bottom: 25px;
-}
-
+/* Certificações */
 .certifications-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  /* Aumentado minmax para mais espaço */
-  gap: 25px;
-  /* margin-top: 25px; Removido, section-content tem padding */
+  grid-template-columns: repeat(1, 1fr);
 }
 
+/* Mobile: 1 coluna por padrão */
 .certification-card {
-  background-color: var(--card-bg);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
-  padding: 18px;
+  padding: 20px;
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: left;
-  border: 1px solid var(--gray);
+  text-align: center;
+  border: 1px solid var(--gray-color);
   display: flex;
   flex-direction: column;
+  min-height: 260px;
 }
 
 .certification-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--primary);
+  border-color: var(--primary-color);
 }
 
 .certification-card img.cert-icon {
-  width: 65px;
+  width: 60px;
   height: auto;
-  max-height: 65px;
-  /* Para manter proporção, mas limitar altura */
-  margin-bottom: 12px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  max-height: 60px;
+  margin: 0 auto 15px auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
-}
-
-.certification-card span.cert-icon-placeholder {
-  display: block;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
-  text-align: center;
-  margin: 0 auto 12px auto;
-  background-color: var(--gray);
-  color: var(--light);
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 0.8em;
-}
-
-.certification-card h5 {
-  margin-bottom: 6px;
-  font-size: 1em;
-  font-weight: 600;
 }
 
 .certification-card .cert-issuer {
   font-size: 0.85em;
   color: #555;
-  margin-bottom: 8px;
+  /* Cor específica para o emissor */
+  margin-bottom: 10px;
 }
 
 .certification-card .cert-details {
   font-size: 0.9em;
-  color: var(--text-color);
-  margin-bottom: 4px;
+  margin-bottom: 0;
   flex-grow: 1;
 }
 
-
-/* Ícones Quadrados Interativos (Ferramentas Favoritas) */
-#interesses>.section-content>p {
-  /* Parágrafo de introdução da seção */
-  margin-bottom: 25px;
+/* Ícones de Ferramentas */
+.icon-grid-subtitle {
+  text-align: center;
 }
 
+/* Subtítulo para a grid de ícones */
 .icon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-  /* Ajuste para responsividade */
-  gap: 20px;
-  /* margin: 45px auto; Removido, section-content tem padding */
-  /* max-width: 800px; Removido para usar largura total do container */
-  justify-content: center;
-  /* Centraliza os ícones se não preencherem a linha */
+  grid-template-columns: repeat(3, 1fr);
 }
 
+/* Mobile: 3 colunas por padrão */
 .icon-square {
-  width: 70px;
-  height: 70px;
-  background-color: var(--card-bg);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  border: 2px solid var(--primary);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  margin: 0 auto;
-  /* Adicionado para centralizar cada ícone na célula do grid */
-}
-
-.icon-square::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: var(--secondary);
-  opacity: 0.8;
-  transition: left 0.3s ease;
-  z-index: 1;
-}
-
-.icon-square:hover::before {
-  left: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  border: 2px solid var(--primary-color);
+  box-shadow: var(--shadow);
 }
 
 .icon-square:hover {
   transform: scale(1.05);
+  border-color: var(--secondary-color);
+  background-color: var(--light-color);
 }
 
 .icon-square img {
-  width: 35px;
-  height: 35px;
-  position: relative;
-  z-index: 2;
-  filter: grayscale(30%);
-  transition: filter 0.2s ease, transform 0.2s ease;
+  width: 50%;
+  height: 50%;
   object-fit: contain;
+  transition: transform 0.2s ease;
 }
 
 .icon-square:hover img {
-  filter: grayscale(0%);
   transform: scale(1.1);
 }
 
-/* Seção de Skills */
-.skills-section {
-  text-align: center;
-  /* margin: 45px 0; Removido */
-}
-
-.skills-category {
-  margin-bottom: 35px;
-}
-
-.skills-category h4 {
-  /* Este é o H3 nas suas classes originais, mudei para H4 para consistência semântica de subtítulo de seção */
-  color: var(--primary);
-  margin-bottom: 20px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.2rem;
-  /* Aumentado um pouco */
-  text-align: left;
-  /* Alinhar títulos de categoria à esquerda */
-}
-
+/* Skills */
 .skills-grid {
-  /* Aplicado DENTRO de cada skills-category */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  /* Ajustado para melhor espaçamento */
-  gap: 25px;
-  /* Ajustado */
-  justify-items: stretch;
-  /* Estica os itens para preencher a célula do grid */
-  align-items: stretch;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/* Mobile: 1 coluna por padrão */
+.skills-category {
+  margin-bottom: 40px;
 }
 
 .skill-item {
@@ -783,33 +663,25 @@ hr {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* margin-bottom: 18px; Removido, gap do grid controla */
-  width: 100%;
-  /* Ocupa a largura da célula do grid */
-  padding: 10px;
-  background-color: var(--card-bg);
-  /* Fundo leve para destacar */
+  padding: 20px;
+  background-color: var(--card-bg-color);
   border-radius: 8px;
   box-shadow: var(--shadow);
-  border: 1px solid var(--gray);
-  min-height: 150px;
-  /* Altura mínima para alinhar visualmente as barras */
-  justify-content: space-between;
-  /* Ajuda a alinhar a barra no final */
+  border: 1px solid var(--gray-color);
+  min-height: 180px;
 }
 
 .skill-icon {
-  height: 45px;
-  width: 45px;
-  margin: 0 auto 10px;
-  /* Aumentado margin-bottom */
+  height: 50px;
+  width: 50px;
+  margin-bottom: 10px;
   object-fit: contain;
-  display: block;
   transition: transform 0.2s ease;
 }
 
 img.skill-icon.placeholder {
-  background-color: var(--gray);
+  /* Estilo para placeholder de ícone de skill */
+  background-color: var(--gray-color);
   padding: 5px;
   border-radius: 4px;
 }
@@ -818,47 +690,30 @@ img.skill-icon.placeholder {
   transform: scale(1.1);
 }
 
-.skill-name {
-  font-size: 0.85rem;
-  /* Aumentado */
-  color: var(--text-color);
-  margin-bottom: 10px;
-  /* Aumentado */
-  font-weight: 500;
-  min-height: 2.5em;
-  /* Para acomodar nomes de skill com 2 linhas e alinhar */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .skill-bar-container {
-  height: 12px;
-  background-color: var(--gray);
-  border-radius: 6px;
+  height: 14px;
+  background-color: var(--gray-color);
+  border-radius: 7px;
   margin-top: auto;
-  /* Empurra a barra para baixo */
+  /* Empurra para baixo */
   overflow: hidden;
-  border: 1px solid var(--dark);
+  border: 1px solid var(--dark-color);
   width: 100%;
-  /* Ocupa toda a largura do .skill-item */
   position: relative;
 }
 
 .skill-bar {
   height: 100%;
-  border-radius: 6px;
-  background: linear-gradient(45deg,
-      var(--secondary) 25%,
-      var(--primary) 25%, var(--primary) 50%,
-      var(--secondary) 50%, var(--secondary) 75%,
-      var(--primary) 75%, var(--primary) 100%);
+  border-radius: 7px;
+  background: linear-gradient(45deg, var(--secondary-color) 25%, var(--primary-color) 25%, var(--primary-color) 50%, var(--secondary-color) 50%, var(--secondary-color) 75%, var(--primary-color) 75%, var(--primary-color) 100%);
   background-size: 40px 40px;
   animation: progress-animation 1s linear infinite;
   transition: width 0.8s ease-in-out;
 }
 
 @keyframes progress-animation {
+
+  /* Chave de animação para a barra de skill */
   0% {
     background-position: 0 0;
   }
@@ -868,60 +723,134 @@ img.skill-icon.placeholder {
   }
 }
 
-/* Conexões Sociais */
-.social-links {
+/* Timeline Horizontal */
+.timeline-container {
+  overflow-x: auto;
+  padding: 20px 0 30px 0;
+  white-space: nowrap;
+}
+
+.timeline-horizontal {
+  display: inline-flex;
+  min-width: 100%;
+  position: relative;
+  padding-top: 30px;
+}
+
+.timeline-horizontal::before {
+  /* A linha da timeline */
+  content: '';
+  position: absolute;
+  height: 4px;
+  background-color: var(--primary-color);
+  top: 28px;
+  /* Ajustado para centralizar com os pontos */
+  left: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+.timeline-item-h {
+  flex: 0 0 280px;
+  margin: 0 15px;
+  position: relative;
+  padding-top: 20px;
+  /* Espaço para o "braço" do ponto */
+}
+
+.timeline-dot {
+  width: 24px;
+  height: 24px;
+  background-color: var(--card-bg-color);
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  /* Metade da altura do ponto, para alinhar na linha */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  transition: background-color 0.3s ease;
+}
+
+.timeline-item-h:hover .timeline-dot {
+  background-color: var(--secondary-color);
+}
+
+.timeline-content-h {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
   text-align: center;
-  margin-top: 35px;
+  border: 1px solid var(--gray-color);
+  white-space: normal;
+  /* Permite quebra de texto dentro do card */
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.social-links a {
-  display: inline-block;
-  margin: 0 12px;
-  transition: transform 0.2s ease;
+.timeline-content-h:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 
-.social-links a:hover {
-  transform: scale(1.15);
+/* .timeline-content-h h4 já estilizado acima */
+.timeline-content-h .date {
+  font-size: 0.85em;
+  color: #555;
+  margin-bottom: 10px;
+  display: block;
+  /* Garante quebra de linha */
 }
 
-.social-links img {
-  width: 35px;
-  height: 35px;
+/* .timeline-content-h p já estilizado acima */
+.timeline-content-h p.institution {
+  /* Parágrafo específico para instituição na timeline */
+  font-weight: bold;
+  color: var(--text-color);
+  /* Usa a cor de texto padrão */
 }
 
 /* Formulário de Contato */
-.contact-form {
+.contact-form-container {
   max-width: 650px;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
+  /* Adicionado margin-bottom */
   padding: 25px;
-  background-color: var(--card-bg);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   box-shadow: var(--shadow);
-  border: 1px solid var(--gray);
+  border: 1px solid var(--gray-color);
 }
 
 .form-group {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: bold;
-  color: var(--primary);
-  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  /* Labels com fonte sans-serif */
 }
 
 .form-control {
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--gray-color);
   border-radius: 5px;
-  background-color: var(--light);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* Fonte mais legível para inputs */
+  background-color: var(--light-color);
+  /* Fundo levemente diferente para campos */
+  font-family: var(--font-sans);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .form-control::placeholder {
@@ -931,21 +860,23 @@ img.skill-icon.placeholder {
 
 .form-control:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 0, 128, 0.15);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.15);
+  /* Usar var com rgba */
 }
 
 .btn-submit {
-  background-color: var(--primary);
+  background-color: var(--primary-color);
   color: var(--button-text-color);
   padding: 12px 25px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.85rem;
+  font-family: var(--font-pixel);
+  font-size: 0.9rem;
   transition: all 0.2s ease;
   box-shadow: 0 2px 0 #000050;
+  /* Sombra escura para profundidade */
   display: block;
   margin: 10px auto 0;
 }
@@ -953,7 +884,8 @@ img.skill-icon.placeholder {
 .btn-submit:hover {
   transform: translateY(-1px);
   box-shadow: 0 3px 0 #000050;
-  background-color: var(--secondary);
+  background-color: var(--secondary-color);
+  color: var(--button-text-color);
 }
 
 .btn-submit:active {
@@ -961,325 +893,480 @@ img.skill-icon.placeholder {
   box-shadow: 0 1px 0 #000050;
 }
 
-/* Footer */
+/* Links Sociais */
+.social-links {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 15px;
+  transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+}
+
+.social-links img {
+  width: 38px;
+  height: 38px;
+}
+
+/* Rodapé */
 .footer {
   text-align: center;
-  padding: 25px 0;
+  padding: 30px 0;
   margin-top: 45px;
-  border-top: 1px solid var(--gray);
+  border-top: 1px solid var(--gray-color);
 }
 
 .footer p {
-  font-size: 0.85rem;
-  color: var(--text-color);
+  font-size: 0.9rem;
 }
 
 .high-score {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.75rem;
-  color: var(--primary);
-  margin-top: 12px;
+  /* Contador de visitas */
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  margin-top: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  /* Reduzido o gap */
 }
 
 .high-score img {
   vertical-align: middle;
-  /* Alinha a imagem do contador com o texto */
 }
 
-/* Responsividade - Melhorada */
-@media screen and (max-width: 992px) {
 
-  /* Tablets maiores */
-  .nav {
-    padding: 0 15px;
+/* ==========================================================================
+   6. Estilos Modulares para Seção "Minha Jornada" - Estilo Menu de Jogo
+      (Substitui a antiga .sobre-mim-lista nesta seção específica)
+   ========================================================================== */
+.game-menu-outer-container {
+  background-color: #3E3E3E;
+  padding: 15px;
+  border-radius: 0px;
+  border: 3px solid #1E1E1E;
+  box-shadow: inset 0 0 0 3px #5E5E5E, 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin-top: 30px;
+  /* Aumentado para separar da descrição da seção */
+  /* font-family: var(--font-pixel); Removido para usar o estilo mais original abaixo */
+}
+
+.game-menu-table {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.game-menu-row {
+  display: flex;
+  background-color: #707070;
+  border: 2px solid #1E1E1E;
+  border-top-color: #8A8A8A;
+  border-left-color: #8A8A8A;
+  border-bottom-color: #505050;
+  border-right-color: #505050;
+  padding: 12px 15px;
+  align-items: flex-start;
+  transition: background-color 0.2s;
+}
+
+.game-menu-row:hover {
+  background-color: #808080;
+}
+
+.game-menu-column {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game-menu-icon-column {
+  /* Coluna da Esquerda: Ícone + Label */
+  flex: 0 0 240px;
+  /* Ajustar esta largura baseada no maior texto de label */
+  display: flex;
+  align-items: flex-start;
+  /* Ícone e texto alinhados no topo */
+  color: var(--text-color);
+  /* Cor padrão do texto para o label */
+  font-family: var(--font-sans);
+  /* Fonte padrão para o label */
+  font-size: 1rem;
+  /* Tamanho da fonte original da lista */
+}
+
+.game-menu-svg-icon {
+  /* Ícone */
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  margin-right: 12px;
+  /* Espaçamento original */
+  margin-top: 2px;
+  /* Alinhamento com primeira linha do texto */
+  /* Filtro removido para usar cor original do SVG */
+}
+
+.game-menu-icon-column strong {
+  /* Label (ex: "Atualmente imerso em:") */
+  font-weight: bold;
+  /* Já é strong, mas explícito */
+  color: inherit;
+  /* Herda cor do pai .game-menu-icon-column */
+  line-height: 1.6;
+  /* Consistente com .sobre-mim-paragrapgh */
+}
+
+.game-menu-content-column {
+  /* Coluna da Direita: Conteúdo principal */
+  flex-grow: 1;
+  padding-left: 15px;
+  /* Espaçamento da coluna de label */
+  color: #E0E0E0;
+  /* Texto claro para contraste com fundo escuro do item */
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.game-menu-content-column p {
+  text-align: justify;
+  margin-bottom: 0;
+  color: inherit;
+  /* Herda cor do pai .game-menu-content-column */
+}
+
+.game-menu-link {
+  /* Link dentro do conteúdo do game-menu */
+  color: #AEE8FF;
+  /* Cor de link ciano, comum em temas escuros */
+  text-decoration: underline;
+  font-family: var(--font-sans);
+}
+
+.game-menu-link:hover {
+  color: #FFFFFF;
+}
+
+
+/* ==========================================================================
+   7. Media Queries para Responsividade
+   ========================================================================== */
+
+/* Tablets e Desktops Menores (a partir de 768px) */
+@media screen and (min-width: 768px) {
+  .profile-section {
+    flex-direction: row;
+    gap: 40px;
+    text-align: left;
   }
 
-  /* Reduz padding da nav */
-  .container {
-    padding: 0 15px;
+  .profile-text {
+    text-align: left;
   }
 
-  /* Reduz padding do container principal */
-  .section-content {
-    padding-left: 10px;
-    padding-right: 10px;
+  .main-title {
+    font-size: 2.2rem;
   }
 
-  /* Ajusta padding interno das seções */
-  .container>section>.section-content {
-    padding-left: 0;
-    padding-right: 0;
+  .section-title {
+    font-size: 1.8rem;
   }
 
+  .subtitle {
+    font-size: 1.3rem;
+  }
+
+  .category-title {
+    font-size: 1.4rem;
+  }
 
   .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    /* Ajuste para 2-3 colunas */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .certifications-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    /* Ajuste para 2-3 colunas */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .icon-grid {
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-    /* Mais ícones por linha */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
+/* Desktops Maiores (a partir de 992px) */
+@media screen and (min-width: 992px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
 
-@media screen and (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
 
-  /* Tablets e mobile landscape */
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .certifications-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .icon-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Ajustes específicos para o menu mobile (até 767.98px) */
+@media screen and (max-width: 767.98px) {
   .menu-toggle {
     display: block;
   }
 
-  /* Mostra o botão hambúrguer */
   .nav-links {
     display: none;
     flex-direction: column;
     position: fixed;
     top: 0;
-    /* Ajuste baseado na altura da sua nav-container */
-    left: 0;
-    width: 100%;
+    left: -100%;
+    width: min(80vw, 280px);
     height: 100vh;
-    background-color: var(--dark);
-    padding-top: 70px;
-    /* Espaço para o logo/botão fechar */
-    align-items: center;
+    background-color: var(--dark-color);
+    padding-top: calc(var(--nav-height) + 20px);
+    align-items: stretch;
     justify-content: flex-start;
-    /* Começa os links do topo */
-    z-index: 999;
-    /* Abaixo do menu-toggle */
-    gap: 25px;
+    z-index: 1001;
     overflow-y: auto;
-    /* Permite scroll se muitos links */
+    transition: left 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
   }
 
   .nav-links.active {
     display: flex;
+    left: 0;
   }
 
   .nav-links li {
     margin-left: 0;
     width: 100%;
-    text-align: center;
   }
 
-  .nav-links a {
-    font-size: 1.1rem;
-    padding: 15px 0;
-  }
-
-  .nav .btn-hire {
-    margin-left: auto;
-  }
-
-  /* Empurra o botão contratar para a direita quando o menu está colapsado */
-
-  /* Estilo para o X quando o menu está aberto */
-  .menu-toggle.active .hamburger {
-    background-color: transparent;
-  }
-
-  .menu-toggle.active .hamburger::before {
-    transform: rotate(45deg) translate(5px, 6px);
-  }
-
-  .menu-toggle.active .hamburger::after {
-    transform: rotate(-45deg) translate(5px, -6px);
-  }
-
-
-  .profile-section {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  h1.main-title {
-    font-size: 1.6rem;
-  }
-
-  /* Ajustes de fonte para tablet */
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  h3.subtitle {
+  .nav-links li a {
+    padding: 15px 25px;
+    display: block;
+    text-align: left;
     font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .sobre-mim-lista li {
-    font-size: 0.95rem;
+  .nav-links li:last-of-type a {
+    border-bottom: none;
   }
 
-  .timeline-item-h {
-    flex: 0 0 200px;
-  }
-
-  .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .certifications-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .icon-grid {
-    grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
-    gap: 15px;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  }
-
-  .skill-item {
-    min-height: 140px;
-  }
-
-  .skill-icon {
-    height: 40px;
-    width: 40px;
-  }
-
-  .skill-name {
-    font-size: 0.8rem;
-    min-height: 2em;
-  }
-}
-
-@media screen and (max-width: 480px) {
-
-  /* Mobile portrait */
-  .nav .btn-hire {
+  .nav-item-dropdown-desktop {
     display: none;
   }
 
-  /* Esconde botão contratar no menu principal */
-  .nav-links {
-    padding-top: 60px;
+  .nav-item-blog-mobile-only,
+  .nav-item-contato-mobile-only {
+    display: block;
   }
 
-  /* Ajuste para altura da nav */
-  .nav-links a {
+  .btn-hire-desktop {
+    display: none;
+  }
+
+  .nav-hire-mobile-item {
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-hire-mobile {
+    /* Estilo específico para o botão contratar no menu mobile */
+    display: inline-block;
     font-size: 1rem;
+    /* Pode ser maior no menu mobile */
+    padding: 12px 30px;
+    /* Padding específico */
   }
 
-
-  h1.main-title {
-    font-size: 1.3rem;
+  .nav-links li.nav-hire-mobile-item a.btn-hire-mobile {
+    border-bottom: none;
+    /* Sem borda de link para o botão */
   }
 
-  h2 {
-    font-size: 1.2rem;
+  /* Responsividade para Game Menu em telas menores */
+  .game-menu-icon-column {
+    flex-basis: 200px;
+    font-size: 0.95rem;
   }
 
-  h3.subtitle {
+  .game-menu-svg-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .game-menu-content-column {
     font-size: 0.9rem;
   }
+}
 
-  .sobre-mim-lista li {
-    font-size: 0.9rem;
+/* Ajustes para o Game Menu em telas médias/pequenas (antes de empilhar completamente) */
+@media screen and (max-width: 620px) {
+
+  /* Breakpoint para empilhar game-menu */
+  .game-menu-row {
+    flex-direction: column;
+    align-items: stretch;
+    /* Itens da coluna ocupam toda a largura */
+    padding: 10px;
   }
 
-  .profile-text p {
-    font-size: 0.9rem;
-  }
-
-
-  .timeline-item-h {
-    flex: 0 0 170px;
-  }
-
-  .timeline-content-h h4 {
-    font-size: 0.85rem;
-  }
-
-  .timeline-content-h p,
-  .timeline-content-h .date {
-    font-size: 0.75rem;
-  }
-
-  .projects-grid,
-  .certifications-grid {
-    grid-template-columns: 1fr;
-    /* Uma coluna */
-  }
-
-  .project-card p.project-description {
-    min-height: auto;
-  }
-
-  /* Remove min-height para uma coluna */
-
-  .icon-grid {
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    gap: 10px;
-  }
-
-  .icon-square {
-    width: 55px;
-    height: 55px;
-  }
-
-  .icon-square img {
-    width: 28px;
-    height: 28px;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  }
-
-  .skill-item {
-    min-height: 120px;
-    padding: 8px;
-  }
-
-  .skill-icon {
-    height: 35px;
-    width: 35px;
+  .game-menu-icon-column {
+    flex-basis: auto;
+    /* Remove base fixa ao empilhar */
+    width: 100%;
     margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #5E5E5E;
+    /* Linha separadora mais sutil */
   }
 
-  .skill-name {
-    font-size: 0.75rem;
-    margin-bottom: 8px;
-    min-height: 1.8em;
+  .game-menu-svg-icon {
+    margin-top: 0;
   }
 
-  .skill-bar-container {
-    height: 10px;
+  /* Reset margin-top se o alinhamento mudar */
+  .game-menu-content-column {
+    padding-left: 0;
+    /* Remove padding quando empilhado */
+    text-align: left;
+    /* Evitar justificado em colunas muito estreitas */
   }
 
-  .contact-form {
+  .game-menu-content-column p {
+    text-align: left;
+  }
+}
+
+
+/* Ajustes finos para telas muito pequenas (até 480px) */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  .container {
     padding: 15px;
   }
 
-  .form-control {
-    padding: 10px;
-    font-size: 0.9rem;
+  .main-title {
+    font-size: 1.6rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .category-title {
+    font-size: 1.2rem;
+  }
+
+  .project-card,
+  .certification-card,
+  .skill-item {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .timeline-item-h {
+    flex-basis: 240px;
+  }
+
+  .timeline-content-h {
+    padding: 15px;
+    min-height: 160px;
+  }
+
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .social-links img {
+    width: 32px;
+    height: 32px;
   }
 
   .btn-submit {
     font-size: 0.8rem;
-    padding: 10px 18px;
+    padding: 10px 20px;
   }
 
-  .footer p {
+  .btn-hire {
     font-size: 0.75rem;
+    padding: 8px 15px;
   }
 
-  .high-score {
-    font-size: 0.7rem;
+  /* Corrigido: adicionado 'rem' */
+  .nav-links li a {
+    font-size: 0.9rem;
+    /* Links do menu mobile um pouco menores */
   }
+}
+
+/* ==========================================================================
+   8. Tooltip para Skills
+   ========================================================================== */
+.skill-tooltip {
+  position: absolute;
+  /* Necessário para posicionamento dinâmico */
+  background-color: var(--dark-color, #222);
+  /* Cor escura do seu tema */
+  color: var(--light-color, #f0f4f8);
+  /* Cor clara do seu tema */
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  /* ~12px-14px */
+  line-height: 1.4;
+  z-index: 10000;
+  /* Para garantir que fique sobre outros elementos */
+  pointer-events: none;
+  /* Impede que o tooltip intercepte eventos do mouse */
+  white-space: nowrap;
+  /* Evita quebra de linha no texto do tooltip */
+  box-shadow: var(--shadow, 0 2px 5px rgba(0, 0, 0, 0.1));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  transform: translate(10px, -30px);
+  /* Posição inicial relativa ao cursor, ajustável */
+}
+
+.skill-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
 }

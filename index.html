@@ -13,7 +13,7 @@
 <body>
   <div class="nav-container">
     <nav class="nav">
-      <a href="#" class="nav-logo">JEFF.DEV</a> <button class="menu-toggle" aria-label="Abrir menu"
+      <a href="#top" class="nav-logo">JEFF.DEV</a> <button class="menu-toggle" aria-label="Abrir menu"
         aria-expanded="false">
         <span class="hamburger"></span>
       </button>
@@ -24,16 +24,32 @@
         <li><a href="#experiencia">Experiência</a></li>
         <li><a href="#certificacoes">Certificações</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="https://jeffersonfirme.wixsite.com/professor/blog" target="_blank">Blog</a></li>
-        <li><a href="#contato">Contato</a></li>
+
+        <li class="nav-item-blog-mobile-only"><a href="https://jeffersonfirme.wixsite.com/professor/blog"
+            target="_blank" rel="noopener noreferrer">Blog</a></li>
+        <li class="nav-item-contato-mobile-only"><a href="#contato">Contato</a></li>
+
+        <li class="nav-item-dropdown-desktop">
+          <a href="javascript:void(0);" class="dropdown-trigger-desktop">Mais <span class="arrow">▼</span></a>
+          <ul class="dropdown-menu-desktop">
+            <li><a href="https://jeffersonfirme.wixsite.com/professor/blog" target="_blank"
+                rel="noopener noreferrer">Blog</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-hire-mobile-item">
+          <a href="https://wa.me/5583996258911?text=Ol%C3%A1%2C%20Jefferson!%20Tenho%20interesse%20em%20discutir%20uma%20oportunidade."
+            class="btn-hire btn-hire-mobile" target="_blank" rel="noopener noreferrer">CONTRATAR</a>
+        </li>
       </ul>
       <a href="https://wa.me/5583996258911?text=Ol%C3%A1%2C%20Jefferson!%20Tenho%20interesse%20em%20discutir%20uma%20oportunidade."
-        class="btn-hire" target="_blank">CONTRATAR</a>
+        class="btn-hire btn-hire-desktop" target="_blank" rel="noopener noreferrer">CONTRATAR</a>
     </nav>
   </div>
 
   <div class="container">
-    <div class="profile-section">
+    <header id="top" class="profile-section">
       <div class="profile-pic-container">
         <img src="assets/images/ghibli_character.png" alt="Jefferson Firmino - Estilo Ghibli" class="profile-pic" />
       </div>
@@ -47,61 +63,95 @@
           open-source quanto em iniciativas privadas. Fluente em Inglês, Espanhol e Português.
         </p>
       </div>
-    </div>
+    </header>
 
     <hr>
 
     <section id="sobre">
-      <h2 style="text-align: center;">🚀 Minha Jornada & Foco Atual</h2>
+      <h2 class="section-title">🚀 Minha Jornada & Foco Atual</h2>
       <div class="section-content">
-        <p style="text-align: justify; line-height: 1.6;">
-          Minha carreira é definida pela persistência e uma busca incessante por conhecimento, superando desafios
+        <p class="section-description-paragraph"> Minha carreira é definida pela persistência e uma busca incessante por
+          conhecimento, superando desafios
           acadêmicos e profissionais que solidificaram minha resiliência e capacidade de adaptação. Hoje, aplico essa
           vivência no desenvolvimento de soluções de software robustas, criativas e orientadas a resultados, com ênfase
           em aplicações de Inteligência Artificial e Ciência de Dados.
         </p>
-        <ul class="sobre-mim-lista" style="padding-left: 0; margin-top: 20px;">
-          <li style="margin-bottom: 12px;">
-            <img src="https://unpkg.com/heroicons@2.0.16/24/outline/computer-desktop.svg" class="svg-icon"
-              alt="Desktop Icon">
-            <strong>Atualmente imerso em:</strong> Projetos de Automação Inteligente, LLM/MLOps e Data Science Aplicada
-          </li>
-          <li style="margin-bottom: 12px;">
-            <img src="https://cdn.jsdelivr.net/npm/@tabler/icons/icons/book.svg" class="svg-icon" alt="Book Icon">
-            <strong>Aprofundando conhecimentos em:</strong> Big Data (Hadoop, Spark), IA Generativa Avançada e
-            Arquiteturas Cloud Native
-          </li>
-          <li style="margin-bottom: 12px;">
-            <img src="https://cdn.jsdelivr.net/npm/@tabler/icons/icons/building.svg" class="svg-icon"
-              alt="Building Icon">
-            <strong>Buscando colaborar com:</strong> Empresas Visionárias, Startups Inovadoras e Projetos Open Source de
-            Impacto Social e Tecnológico
-          </li>
-          <li style="margin-bottom: 12px;">
-            <img src="https://cdn-icons-png.flaticon.com/128/9937/9937875.png" class="svg-icon" alt="Handshake Icon">
-            <strong>Aberto a oportunidades desafiadoras em:</strong> Desenvolvimento Full Stack Sênior, Data Science
-            Lead e Engenharia de IA Especializada
-          </li>
-          <li style="margin-bottom: 12px;">
-            <img src="https://unpkg.com/heroicons@2.0.16/24/outline/envelope.svg" class="svg-icon" alt="Mail Icon">
-            <strong>Conecte-se comigo:</strong> <a
-              href="mailto:professorjefferson.site@gmail.com">professorjefferson.site@gmail.com</a>
-          </li>
-        </ul>
+
+        <div class="game-menu-outer-container">
+          <div class="game-menu-table">
+
+            <div class="game-menu-row">
+              <div class="game-menu-column game-menu-icon-column">
+                <img src="https://unpkg.com/heroicons@2.0.16/24/outline/computer-desktop.svg" class="game-menu-svg-icon"
+                  alt="Ícone de Computador Desktop">
+                <strong>Atualmente imerso em:</strong>
+              </div>
+              <div class="game-menu-column game-menu-content-column">
+                <p>Projetos de Automação Inteligente, LLM/MLOps e Data Science Aplicada.</p>
+              </div>
+            </div>
+
+            <div class="game-menu-row">
+              <div class="game-menu-column game-menu-icon-column">
+                <img src="https://cdn.jsdelivr.net/npm/@tabler/icons/icons/book.svg" class="game-menu-svg-icon"
+                  alt="Ícone de Livro">
+                <strong>Aprofundando conhecimentos em:</strong>
+              </div>
+              <div class="game-menu-column game-menu-content-column">
+                <p>Big Data (Hadoop, Spark), IA Generativa Avançada e Arquiteturas Cloud Native.</p>
+              </div>
+            </div>
+
+            <div class="game-menu-row">
+              <div class="game-menu-column game-menu-icon-column">
+                <img src="https://cdn.jsdelivr.net/npm/@tabler/icons/icons/building.svg" class="game-menu-svg-icon"
+                  alt="Ícone de Prédio">
+                <strong>Buscando colaborar com:</strong>
+              </div>
+              <div class="game-menu-column game-menu-content-column">
+                <p>Empresas Visionárias, Startups Inovadoras e Projetos Open Source de Impacto Social e Tecnológico.</p>
+              </div>
+            </div>
+
+            <div class="game-menu-row">
+              <div class="game-menu-column game-menu-icon-column">
+                <img src="https://cdn-icons-png.flaticon.com/128/9937/9937875.png" class="game-menu-svg-icon"
+                  alt="Ícone de Aperto de Mão">
+                <strong>Aberto a oportunidades desafiadoras em:</strong>
+              </div>
+              <div class="game-menu-column game-menu-content-column">
+                <p>Desenvolvimento Full Stack Sênior, Data Science Lead e Engenharia de IA Especializada.</p>
+              </div>
+            </div>
+
+            <div class="game-menu-row">
+              <div class="game-menu-column game-menu-icon-column">
+                <img src="https://unpkg.com/heroicons@2.0.16/24/outline/envelope.svg" class="game-menu-svg-icon"
+                  alt="Ícone de Envelope">
+                <strong>Conecte-se comigo:</strong>
+              </div>
+              <div class="game-menu-column game-menu-content-column">
+                <p><a href="mailto:professorjefferson.site@gmail.com"
+                    class="game-menu-link">professorjefferson.site@gmail.com</a></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
 
     <hr>
 
     <section id="projetos-destaque" class="featured-projects-section">
-      <h2>🛠️ Projetos em Destaque</h2>
+      <h2 class="section-title">🛠️ Projetos em Destaque</h2>
       <div class="projects-grid section-content">
         <div class="project-card">
           <img src="assets/images/icon_ai_flask.webp" alt="Ícone Projeto IA com Flask" class="project-icon">
           <h5>IA Generativa com Flask</h5>
           <p class="project-description">IA generativa, GPT-J, Flask, PyTorch, Transformers.</p>
           <a href="https://github.com/jeffthedeveloper/Codes-for-LLM-Models/tree/Main" class="project-link"
-            target="_blank">Ver no GitHub</a>
+            target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
         </div>
         <div class="project-card">
           <img src="assets/images/icon_api_backend.webp" alt="Ícone Projeto API Backend" class="project-icon">
@@ -109,20 +159,22 @@
           <p class="project-description">API REST, Flask, FastAPI, backend Python, autenticação, integração de dados.
           </p>
           <a href="https://github.com/jeffthedeveloper/Python-Weekend-Projects/tree/main/basic-python-rest-api"
-            class="project-link" target="_blank">Ver no GitHub</a>
+            class="project-link" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
         </div>
         <div class="project-card">
           <img src="assets/images/icon_bookmarks.webp" alt="Ícone Importador de Bookmarks" class="project-icon">
           <h5>Importador de Bookmarks</h5>
           <p class="project-description">Automatização de favoritos, leitura TXT, geração de HTML, Python.</p>
-          <a href="https://github.com/jeffthedeveloper/import-bookmarks" class="project-link" target="_blank">Ver no
+          <a href="https://github.com/jeffthedeveloper/import-bookmarks" class="project-link" target="_blank"
+            rel="noopener noreferrer">Ver no
             GitHub</a>
         </div>
         <div class="project-card">
           <img src="assets/images/icon_calculator.webp" alt="Ícone Calculadora de Notas" class="project-icon">
           <h5>Calculadora de Notas</h5>
           <p class="project-description">Projeto open source, cálculo de notas, HTML, CSS, JavaScript.</p>
-          <a href="https://github.com/jeffthedeveloper/calculadora-notas" class="project-link" target="_blank">Ver no
+          <a href="https://github.com/jeffthedeveloper/calculadora-notas" class="project-link" target="_blank"
+            rel="noopener noreferrer">Ver no
             GitHub</a>
         </div>
         <div class="project-card">
@@ -130,14 +182,15 @@
           <h5>Análise de Dados COVID-19</h5>
           <p class="project-description">Análise de dados, Pandas, Matplotlib, Seaborn, insights da pandemia.</p>
           <a href="https://github.com/jeffthedeveloper/Python-Weekend-Projects/tree/main/Data%20Analysis%20Covid-19/DataSet"
-            class="project-link" target="_blank">Ver no GitHub</a>
+            class="project-link" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
         </div>
         <div class="project-card">
           <img src="assets/images/icon_data_system.webp" alt="Ícone Data Analysis System" class="project-icon">
           <h5>Sistema de Análise de Dados</h5>
           <p class="project-description">Integração SQL + Python, geração de relatórios PDF, gráficos visuais, automação
             de dados.</p>
-          <a href="https://github.com/jeffthedeveloper/Data-Analysis-System" class="project-link" target="_blank">Ver no
+          <a href="https://github.com/jeffthedeveloper/Data-Analysis-System" class="project-link" target="_blank"
+            rel="noopener noreferrer">Ver no
             GitHub</a>
         </div>
         <div class="project-card">
@@ -145,28 +198,31 @@
           <h5>ETL Pipeline com Spotify API</h5>
           <p class="project-description">Pipeline ETL, Spotify API, Pandas, transformação de dados.</p>
           <a href="https://github.com/jeffthedeveloper/Python-Weekend-Projects/tree/main/spotify-data-pipeline"
-            class="project-link" target="_blank">Ver no GitHub</a>
+            class="project-link" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
         </div>
         <div class="project-card">
           <img src="assets/images/icon_game_rpg.webp" alt="Ícone Jogo Python " class="project-icon">
           <h5>Jogo de Plataforma (Python)</h5>
           <p class="project-description">Jogo Estilo Pacman interativo feito em Python, foco em experiência lúdica e
             gamificação.</p>
-          <a href="https://github.com/jeffthedeveloper/TutorCodeChallenge" class="project-link" target="_blank">Ver no
+          <a href="https://github.com/jeffthedeveloper/TutorCodeChallenge" class="project-link" target="_blank"
+            rel="noopener noreferrer">Ver no
             GitHub</a>
         </div>
         <div class="project-card">
           <img src="assets/images/icon_flutter.webp" alt="Ícone App Mobile Flutter" class="project-icon">
           <h5>Apps Mobile (Flutter)</h5>
           <p class="project-description">App mobile com Flutter, sistema de cadastro, VSCode e Android Studio.</p>
-          <a href="https://github.com/jeffthedeveloper/Cadastro-Flutter" class="project-link" target="_blank">Ver no
+          <a href="https://github.com/jeffthedeveloper/Cadastro-Flutter" class="project-link" target="_blank"
+            rel="noopener noreferrer">Ver no
             GitHub</a>
         </div>
         <div class="project-card">
           <img src="assets/images/LLMOPS-MLOPS.webp" alt="Ícone LLMOps e MLOps" class="project-icon">
           <h5>LLMOps e MLOps com Flask</h5>
           <p class="project-description">Monitoramento e otimização de modelos LLM/ML, Flask, Pandas, TensorFlow.</p>
-          <a href="https://github.com/jeffthedeveloper/MLOPS" class="project-link" target="_blank">Ver no GitHub</a>
+          <a href="https://github.com/jeffthedeveloper/MLOPS" class="project-link" target="_blank"
+            rel="noopener noreferrer">Ver no GitHub</a>
         </div>
       </div>
     </section>
@@ -174,7 +230,7 @@
     <hr>
 
     <section id="formacao">
-      <h2>🎓 Uma Jornada Acadêmica de Persistência</h2>
+      <h2 class="section-title">🎓 Uma Jornada Acadêmica de Persistência</h2>
       <div class="timeline-container section-content">
         <div class="timeline-horizontal">
           <div class="timeline-item-h">
@@ -182,7 +238,7 @@
             <div class="timeline-content-h">
               <h4>Pós-Graduação em Big Data & Data Science</h4>
               <span class="date">2025 - 2026 (Em curso)</span>
-              <p>@ Univitória</p>
+              <p class="institution">@ Univitória</p>
               <p>Foco: Big Data, Hadoop, Spark, NoSQL, IA & Machine Learning.</p>
             </div>
           </div>
@@ -191,7 +247,7 @@
             <div class="timeline-content-h">
               <h4>Licenciatura em Matemática</h4>
               <span class="date">2024 - 2025 (Em curso)</span>
-              <p>@ UNOPAR</p>
+              <p class="institution">@ UNOPAR</p>
               <p>Fortalecimento da base lógica e analítica para Data Science.</p>
             </div>
           </div>
@@ -200,7 +256,7 @@
             <div class="timeline-content-h">
               <h4>Pós-Graduação em Engenharia de Software</h4>
               <span class="date">Concluído em 2023</span>
-              <p>@ Faculdade Focus</p>
+              <p class="institution">@ Faculdade Focus</p>
               <p>Foco: Métodos Ágeis, Governança de TI, Análise de Sistemas.</p>
             </div>
           </div>
@@ -209,7 +265,7 @@
             <div class="timeline-content-h">
               <h4>Análise e Desenvolvimento de Sistemas (ADS)</h4>
               <span class="date">2021 - 2022</span>
-              <p>@ UNOPAR</p>
+              <p class="institution">@ UNOPAR</p>
               <p>Foco: SQL, Modelagem de Dados, Análise de Dados.</p>
             </div>
           </div>
@@ -218,7 +274,7 @@
             <div class="timeline-content-h">
               <h4>Gestão Financeira</h4>
               <span class="date">2020 - 2022</span>
-              <p>@ UNOPAR</p>
+              <p class="institution">@ UNOPAR</p>
               <p>Visão estratégica e analítica para negócios.</p>
             </div>
           </div>
@@ -227,7 +283,7 @@
             <div class="timeline-content-h">
               <h4>Ciências Contábeis (Cursado)</h4>
               <span class="date">2017 - 2019</span>
-              <p>@ UEPB</p>
+              <p class="institution">@ UEPB</p>
               <p>Disciplinas: Mat. Aplicada (9.8), Dir. Empresarial (9.5), Mercado Financeiro (9.8).</p>
             </div>
           </div>
@@ -236,7 +292,7 @@
             <div class="timeline-content-h">
               <h4>Ciência da Computação (Cursado)</h4>
               <span class="date">2015 - 2016</span>
-              <p>@ UFCG</p>
+              <p class="institution">@ UFCG</p>
               <p>Disciplinas: Lab. Prog. I (8.2), Prog. I (8.2), Intro. Comp. (7.5).</p>
             </div>
           </div>
@@ -244,8 +300,8 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content-h">
               <h4>Técnico em Suporte e Manutenção de Informática</h4>
-              <span class="date">Concluído (Ex: 2014)</span>
-              <p>@ Instituição (Ex: Escola Técnica)</p>
+              <span class="date">Concluído em 2014</span>
+              <p class="institution">@ SENAI </p>
               <p>Fundamentos de hardware, software e redes.</p>
             </div>
           </div>
@@ -256,7 +312,7 @@
     <hr>
 
     <section id="experiencia">
-      <h2>💼 Experiência Profissional</h2>
+      <h2 class="section-title">💼 Experiência Profissional</h2>
       <div class="timeline-container section-content">
         <div class="timeline-horizontal">
           <div class="timeline-item-h">
@@ -264,7 +320,7 @@
             <div class="timeline-content-h">
               <h4>Desenvolvedor Full Stack & Cientista de Dados Freelance</h4>
               <span class="date">2022 - Presente</span>
-              <p>@ Autônomo</p>
+              <p class="institution">@ Autônomo</p>
               <p>Soluções web e mobile, automação, análise de dados (Python, Java, React, Node, SQL, Power BI).</p>
             </div>
           </div>
@@ -273,7 +329,7 @@
             <div class="timeline-content-h">
               <h4>Pesquisador Acadêmico (Data Science)</h4>
               <span class="date">2025 - Presente</span>
-              <p>@ Univitória (Pós-Graduação)</p>
+              <p class="institution">@ Univitória (Pós-Graduação)</p>
               <p>Pesquisa em IA, Machine Learning (PyTorch, TensorFlow) e Big Data (Hadoop, Spark).</p>
             </div>
           </div>
@@ -282,7 +338,7 @@
             <div class="timeline-content-h">
               <h4>Operador de Atendimento Especializado (Shopee)</h4>
               <span class="date">Jul 2024 - Jan 2025</span>
-              <p>@ AeC Contact Center</p>
+              <p class="institution">@ AeC Contact Center</p>
               <p>Suporte ao cliente, resolução de problemas e comunicação eficaz.</p>
             </div>
           </div>
@@ -291,7 +347,7 @@
             <div class="timeline-content-h">
               <h4>Assistente Administrativo (CLT)</h4>
               <span class="date">Mar 2024 - Jun 2024</span>
-              <p>@ Solarnergy</p>
+              <p class="institution">@ Solarnergy</p>
               <p>Suporte em projeto de inclusão digital e rotinas administrativas.</p>
             </div>
           </div>
@@ -300,7 +356,7 @@
             <div class="timeline-content-h">
               <h4>Estágios em Contabilidade</h4>
               <span class="date">2019 - 2023 (Período Agregado)</span>
-              <p>@ Diversos Escritórios (Autônomo/Projetos)</p>
+              <p class="institution">@ Diversos Escritórios (Autônomo/Projetos)</p>
               <p>Lançamentos, conciliações, apuração de impostos, rotinas fiscais e financeiras.</p>
             </div>
           </div>
@@ -312,18 +368,19 @@
 
     <section id="certificacoes">
       <div class="certifications-section section-content">
-        <h2>🏆 Certificações Selecionadas</h2>
-        <p>Compromisso contínuo com o aprendizado e aprimoramento técnico em tecnologias de ponta.</p>
+        <h2 class="section-title">🏆 Certificações Selecionadas</h2>
+        <p class="section-subtitle">Compromisso contínuo com o aprendizado e aprimoramento técnico em tecnologias de
+          ponta.</p>
         <div class="certifications-grid">
           <div class="certification-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo"
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Logo da IBM"
               class="cert-icon">
             <h5>IBM Data Science Professional Certificate</h5>
             <p class="cert-issuer">IBM (Coursera)</p>
             <p class="cert-details">Python, SQL, Machine Learning, Data Analysis, Visualization.</p>
           </div>
           <div class="certification-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo"
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Logo da IBM"
               class="cert-icon">
             <h5>IBM Linux Commands and Shell Scripting</h5>
             <p class="cert-issuer">IBM (Coursera)</p>
@@ -332,7 +389,7 @@
           <div class="certification-card">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png"
-              alt="Microsoft Icon" class="cert-icon">
+              alt="Ícone da Microsoft" class="cert-icon">
             <h5>Azure Fundamentals (AZ-900)</h5>
             <p class="cert-issuer">Microsoft</p>
             <p class="cert-details">Fundamentos de serviços de nuvem do Azure.</p>
@@ -340,40 +397,41 @@
           <div class="certification-card">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png"
-              alt="Google Icon" class="cert-icon">
+              alt="Ícone do Google" class="cert-icon">
             <h5>Google IT Support Professional</h5>
             <p class="cert-issuer">Google (Coursera)</p>
             <p class="cert-details">Suporte de TI, Redes, Sistemas Operacionais, Segurança.</p>
           </div>
           <div class="certification-card">
-            <img src="https://miro.medium.com/v2/resize:fit:1400/1*JhV105AX1GNhHhqc8ZunEg.png" alt="HackerRank Icon"
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*JhV105AX1GNhHhqc8ZunEg.png" alt="Ícone do HackerRank"
               class="cert-icon">
             <h5>Software Engineer Role Certificate</h5>
             <p class="cert-issuer">HackerRank</p>
             <p class="cert-details">Problem solving, SQL, REST API.</p>
           </div>
           <div class="certification-card">
-            <img src="https://miro.medium.com/v2/resize:fit:1400/1*JhV105AX1GNhHhqc8ZunEg.png" alt="HackerRank Icon"
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*JhV105AX1GNhHhqc8ZunEg.png" alt="Ícone do HackerRank"
               class="cert-icon">
             <h5>Java (Basic) Certificate</h5>
             <p class="cert-issuer">HackerRank</p>
             <p class="cert-details">Fundamentos de programação Java.</p>
           </div>
           <div class="certification-card">
-            <img src="assets/images/efset.png" alt="EF SET Logo" class="cert-icon">
+            <img src="assets/images/efset.png" alt="Logo EF SET" class="cert-icon">
             <h5>EF SET English Certificate</h5>
             <p class="cert-issuer">EF SET</p>
             <p class="cert-details">C2 Proficient (CEFR) - Avaliação padronizada de proficiência em inglês.</p>
           </div>
           <div class="certification-card">
-            <img src="assets/images/microsoft-linkedin.png" alt="Microsoft LinkedIn Logo" class="cert-icon">
+            <img src="assets/images/microsoft-linkedin.png" alt="Logo Microsoft LinkedIn" class="cert-icon">
             <h5>Fundamentos em IA Generativa</h5>
             <p class="cert-issuer">Microsoft & LinkedIn</p>
             <p class="cert-details">Conceitos e aplicações de Inteligência Artificial Generativa.</p>
           </div>
         </div>
-        <p style="margin-top: 20px;"><i>*Lista resumida. Mais de 285 certificações. Para detalhes, visite meu <a
-              href="https://github.com/jeffthedeveloper/Certifications_Academic" target="_blank">repositório de
+        <p class="certifications-footer"><i>*Lista resumida. Mais de 285 certificações. Para detalhes, visite meu <a
+              href="https://github.com/jeffthedeveloper/Certifications_Academic" target="_blank"
+              rel="noopener noreferrer">repositório de
               certificações</a>.</i></p>
       </div>
     </section>
@@ -381,64 +439,75 @@
     <hr>
 
     <section id="interesses">
-      <h2>✨ Ferramentas & Tecnologias Chave</h2>
+      <h2 class="section-title">✨ Ferramentas & Tecnologias Chave</h2>
       <div class="section-content">
-        <p align="center">Clique nos ícones para explorar a documentação oficial de cada tecnologia.</p>
+        <p class="section-subtitle icon-grid-subtitle">Clique nos ícones para explorar a documentação oficial de cada
+          tecnologia.</p>
         <div class="icon-grid">
-          <a href="https://www.python.org/doc/" target="_blank" class="icon-square" title="Python">
+          <a href="https://www.python.org/doc/" target="_blank" rel="noopener noreferrer" class="icon-square"
+            title="Python">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-              alt="Python">
+              alt="Ícone Python">
           </a>
-          <a href="https://docs.oracle.com/en/java/" target="_blank" class="icon-square" title="Java">
+          <a href="https://docs.oracle.com/en/java/" target="_blank" rel="noopener noreferrer" class="icon-square"
+            title="Java">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg"
-              alt="Java">
+              alt="Ícone Java">
           </a>
-          <a href="https://www.tensorflow.org/api_docs" target="_blank" class="icon-square" title="TensorFlow">
+          <a href="https://www.tensorflow.org/api_docs" target="_blank" rel="noopener noreferrer" class="icon-square"
+            title="TensorFlow">
             <img
               src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original-wordmark.svg"
-              alt="TensorFlow">
+              alt="Ícone TensorFlow">
           </a>
-          <a href="https://pytorch.org/docs/stable/index.html" target="_blank" class="icon-square" title="PyTorch">
+          <a href="https://pytorch.org/docs/stable/index.html" target="_blank" rel="noopener noreferrer"
+            class="icon-square" title="PyTorch">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg"
-              alt="PyTorch">
+              alt="Ícone PyTorch">
           </a>
-          <a href="https://reactjs.org/docs/getting-started.html" target="_blank" class="icon-square" title="React">
+          <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener noreferrer"
+            class="icon-square" title="React">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"
-              alt="React">
+              alt="Ícone React">
           </a>
-          <a href="https://nodejs.org/en/docs/" target="_blank" class="icon-square" title="Node.js">
+          <a href="https://nodejs.org/en/docs/" target="_blank" rel="noopener noreferrer" class="icon-square"
+            title="Node.js">
             <img
               src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
-              alt="Node.js">
+              alt="Ícone Node.js">
           </a>
-          <a href="https://flask.palletsprojects.com/" target="_blank" class="icon-square" title="Flask">
+          <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="icon-square"
+            title="Flask">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg"
-              alt="Flask">
+              alt="Ícone Flask">
           </a>
-          <a href="https://dev.mysql.com/doc/" target="_blank" class="icon-square" title="SQL (MySQL/PostgreSQL)">
+          <a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer" class="icon-square"
+            title="SQL (MySQL/PostgreSQL)">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
-              alt="MySQL">
+              alt="Ícone MySQL">
           </a>
-          <a href="https://docs.docker.com/" target="_blank" class="icon-square" title="Docker">
+          <a href="https://docs.docker.com/" target="_blank" rel="noopener noreferrer" class="icon-square"
+            title="Docker">
             <img
               src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg"
-              alt="Docker">
+              alt="Ícone Docker">
           </a>
-          <a href="https://cloud.google.com/docs" target="_blank" class="icon-square" title="Google Cloud Platform">
+          <a href="https://cloud.google.com/docs" target="_blank" rel="noopener noreferrer" class="icon-square"
+            title="Google Cloud Platform">
             <img
               src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg"
-              alt="Google Cloud">
+              alt="Ícone Google Cloud">
           </a>
-          <a href="https://aws.amazon.com/documentation/" target="_blank" class="icon-square"
+          <a href="https://aws.amazon.com/documentation/" target="_blank" rel="noopener noreferrer" class="icon-square"
             title="Amazon Web Services">
             <img
               src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-              alt="AWS">
+              alt="Ícone AWS">
           </a>
-          <a href="https://learn.microsoft.com/en-us/azure/?product=popular" target="_blank" class="icon-square"
-            title="Microsoft Azure">
+          <a href="https://learn.microsoft.com/en-us/azure/?product=popular" target="_blank" rel="noopener noreferrer"
+            class="icon-square" title="Microsoft Azure">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg"
-              alt="Azure Icon">
+              alt="Ícone Azure">
           </a>
         </div>
       </div>
@@ -448,23 +517,23 @@
 
     <section id="skills">
       <div class="skills-section section-content">
-        <h2>💡 Habilidades Técnicas</h2>
+        <h2 class="section-title">💡 Habilidades Técnicas</h2>
 
         <div class="skills-category">
-          <h4>🖥️ Desenvolvimento Back-End & APIs</h4>
+          <h3 class="category-title">🖥️ Desenvolvimento Back-End & APIs</h3>
           <div class="skills-grid">
             <div class="skill-item" title="Python (Flask, FastAPI, Django)">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-                class="skill-icon" alt="Python">
-              <div class="skill-name">Python</div>
+                class="skill-icon" alt="Ícone Python">
+              <span class="skill-name">Python</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 95%;"></div>
               </div>
             </div>
             <div class="skill-item" title="Java (Spring Boot)">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg"
-                class="skill-icon" alt="Java">
-              <div class="skill-name">Java</div>
+                class="skill-icon" alt="Ícone Java">
+              <span class="skill-name">Java</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 85%;"></div>
               </div>
@@ -472,8 +541,8 @@
             <div class="skill-item" title="Node.js (Express)">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
-                class="skill-icon" alt="Node.js">
-              <div class="skill-name">Node.js</div>
+                class="skill-icon" alt="Ícone Node.js">
+              <span class="skill-name">Node.js</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 80%;"></div>
               </div>
@@ -481,24 +550,24 @@
             <div class="skill-item" title="SQL (MySQL, PostgreSQL, SQLite)">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
-                class="skill-icon" alt="SQL">
-              <div class="skill-name">SQL</div>
+                class="skill-icon" alt="Ícone SQL">
+              <span class="skill-name">SQL</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 90%;"></div>
               </div>
             </div>
             <div class="skill-item" title="MongoDB">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
-                class="skill-icon" alt="MongoDB">
-              <div class="skill-name">MongoDB</div>
+                class="skill-icon" alt="Ícone MongoDB">
+              <span class="skill-name">MongoDB</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 70%;"></div>
               </div>
             </div>
             <div class="skill-item" title="API RESTful Design">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg"
-                class="skill-icon" alt="API Rest Design">
-              <div class="skill-name">APIs RESTful</div>
+                class="skill-icon" alt="Ícone Design de API RESTful">
+              <span class="skill-name">APIs RESTful</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 85%;"></div>
               </div>
@@ -507,13 +576,13 @@
         </div>
 
         <div class="skills-category">
-          <h4>🎨 Desenvolvimento Front-End & UI/UX</h4>
+          <h3 class="category-title">🎨 Desenvolvimento Front-End & UI/UX</h3>
           <div class="skills-grid">
             <div class="skill-item" title="JavaScript (ES6+)">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-                class="skill-icon" alt="JavaScript">
-              <div class="skill-name">JavaScript</div>
+                class="skill-icon" alt="Ícone JavaScript">
+              <span class="skill-name">JavaScript</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 90%;"></div>
               </div>
@@ -521,40 +590,40 @@
             <div class="skill-item" title="React.js">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"
-                class="skill-icon" alt="React">
-              <div class="skill-name">React.js</div>
+                class="skill-icon" alt="Ícone React.js">
+              <span class="skill-name">React.js</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 90%;"></div>
               </div>
             </div>
             <div class="skill-item" title="HTML5">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
-                class="skill-icon" alt="HTML5">
-              <div class="skill-name">HTML5</div>
+                class="skill-icon" alt="Ícone HTML5">
+              <span class="skill-name">HTML5</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 95%;"></div>
               </div>
             </div>
             <div class="skill-item" title="CSS3 (Flexbox, Grid)">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
-                class="skill-icon" alt="CSS3">
-              <div class="skill-name">CSS3</div>
+                class="skill-icon" alt="Ícone CSS3">
+              <span class="skill-name">CSS3</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 90%;"></div>
               </div>
             </div>
             <div class="skill-item" title="Bootstrap, TailwindCSS">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg"
-                class="skill-icon" alt="Bootstrap">
-              <div class="skill-name">Frameworks CSS</div>
+                class="skill-icon" alt="Ícone Bootstrap">
+              <span class="skill-name">Frameworks CSS</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 80%;"></div>
               </div>
             </div>
             <div class="skill-item" title="Figma (Prototipagem)">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg"
-                class="skill-icon" alt="Figma">
-              <div class="skill-name">Figma</div>
+                class="skill-icon" alt="Ícone Figma">
+              <span class="skill-name">Figma</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 65%;"></div>
               </div>
@@ -563,13 +632,13 @@
         </div>
 
         <div class="skills-category">
-          <h4>🧠 Inteligência Artificial & Data Science</h4>
+          <h3 class="category-title">🧠 Inteligência Artificial & Data Science</h3>
           <div class="skills-grid">
             <div class="skill-item" title="Machine Learning (Scikit-learn)">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg"
-                class="skill-icon" alt="Scikit-learn">
-              <div class="skill-name">Machine Learning</div>
+                class="skill-icon" alt="Ícone Scikit-learn">
+              <span class="skill-name">Machine Learning</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 80%;"></div>
               </div>
@@ -577,8 +646,8 @@
             <div class="skill-item" title="Deep Learning (TensorFlow, PyTorch)">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original-wordmark.svg"
-                class="skill-icon" alt="TensorFlow">
-              <div class="skill-name">Deep Learning</div>
+                class="skill-icon" alt="Ícone TensorFlow">
+              <span class="skill-name">Deep Learning</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 75%;"></div>
               </div>
@@ -586,31 +655,31 @@
             <div class="skill-item" title="Pandas, NumPy">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original-wordmark.svg"
-                class="skill-icon" alt="Pandas">
-              <div class="skill-name">Análise de Dados</div>
+                class="skill-icon" alt="Ícone Pandas">
+              <span class="skill-name">Análise de Dados</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 90%;"></div>
               </div>
             </div>
             <div class="skill-item" title="Power BI, Matplotlib, Seaborn">
               <img src="https://raw.githubusercontent.com/microsoft/PowerBI-Icons/main/PNG/Power-BI.png"
-                class="skill-icon placeholder" alt="Power BI">
-              <div class="skill-name">Visualização de Dados</div>
+                class="skill-icon placeholder" alt="Ícone Power BI">
+              <span class="skill-name">Visualização de Dados</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 85%;"></div>
               </div>
             </div>
             <div class="skill-item" title="NLP (spaCy, NLTK, Hugging Face)">
               <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" class="skill-icon"
-                alt="Hugging Face">
-              <div class="skill-name">NLP</div>
+                alt="Ícone Hugging Face">
+              <span class="skill-name">NLP</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 70%;"></div>
               </div>
             </div>
             <div class="skill-item" title="LLMs, MLOps, IA Generativa">
-              <img src="assets/images/LLMOPS-MLOPS.webp" class="skill-icon" alt="LLMOps e MLOps">
-              <div class="skill-name">LLMs & MLOps</div>
+              <img src="assets/images/LLMOPS-MLOPS.webp" class="skill-icon" alt="Ícone LLMOps e MLOps">
+              <span class="skill-name">LLMs & MLOps</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 75%;"></div>
               </div>
@@ -619,12 +688,12 @@
         </div>
 
         <div class="skills-category">
-          <h4>☁️ DevOps, Cloud & Outras Ferramentas</h4>
+          <h3 class="category-title">☁️ DevOps, Cloud & Outras Ferramentas</h3>
           <div class="skills-grid">
             <div class="skill-item" title="Git, GitHub, GitLab">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg"
-                class="skill-icon" alt="Git">
-              <div class="skill-name">Git & GitHub</div>
+                class="skill-icon" alt="Ícone Git">
+              <span class="skill-name">Git & GitHub</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 95%;"></div>
               </div>
@@ -632,8 +701,8 @@
             <div class="skill-item" title="Docker">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg"
-                class="skill-icon" alt="Docker">
-              <div class="skill-name">Docker</div>
+                class="skill-icon" alt="Ícone Docker">
+              <span class="skill-name">Docker</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 80%;"></div>
               </div>
@@ -641,8 +710,8 @@
             <div class="skill-item" title="CI/CD (GitHub Actions, Jenkins)">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/githubactions/githubactions-original.svg"
-                class="skill-icon" alt="GitHub Actions">
-              <div class="skill-name">CI/CD</div>
+                class="skill-icon" alt="Ícone GitHub Actions">
+              <span class="skill-name">CI/CD</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 70%;"></div>
               </div>
@@ -650,24 +719,24 @@
             <div class="skill-item" title="Cloud (AWS, Azure, GCP)">
               <img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg"
-                class="skill-icon" alt="Cloud">
-              <div class="skill-name">Cloud Platforms</div>
+                class="skill-icon" alt="Ícone Google Cloud">
+              <span class="skill-name">Cloud Platforms</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 70%;"></div>
               </div>
             </div>
             <div class="skill-item" title="Linux, Bash/Shell">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg"
-                class="skill-icon" alt="Linux">
-              <div class="skill-name">Linux & Shell</div>
+                class="skill-icon" alt="Ícone Linux">
+              <span class="skill-name">Linux & Shell</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 75%;"></div>
               </div>
             </div>
             <div class="skill-item" title="Metodologias Ágeis (Scrum, Kanban)">
               <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jira/jira-original.svg"
-                class="skill-icon" alt="Agile">
-              <div class="skill-name">Metodologias Ágeis</div>
+                class="skill-icon" alt="Ícone Agile/Jira">
+              <span class="skill-name">Metodologias Ágeis</span>
               <div class="skill-bar-container">
                 <div class="skill-bar" style="width: 85%;"></div>
               </div>
@@ -680,54 +749,56 @@
     <hr>
 
     <section id="contato">
-      <h2>📫 Entre em Contato</h2>
+      <h2 class="section-title">📫 Entre em Contato</h2>
       <div class="section-content">
-        <div class="contact-form">
+        <div class="contact-form-container">
           <form id="contactForm">
             <div class="form-group">
               <label for="name">Nome</label>
-              <input type="text" id="name" class="form-control" placeholder="Seu nome completo" required>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Seu nome completo" required>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required>
+              <input type="email" id="email" name="email" class="form-control" placeholder="seu.email@exemplo.com"
+                required>
             </div>
             <div class="form-group">
               <label for="subject">Assunto</label>
-              <input type="text" id="subject" class="form-control" placeholder="Assunto da mensagem" required>
+              <input type="text" id="subject" name="subject" class="form-control" placeholder="Assunto da mensagem"
+                required>
             </div>
             <div class="form-group">
               <label for="message">Mensagem</label>
-              <textarea id="message" class="form-control" rows="6" placeholder="Digite sua mensagem aqui..."
-                required></textarea>
+              <textarea id="message" name="message" class="form-control" rows="6"
+                placeholder="Digite sua mensagem aqui..." required></textarea>
             </div>
             <button type="submit" class="btn-submit">ENVIAR MENSAGEM</button>
           </form>
         </div>
 
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/jeffthedeveloper/" target="_blank" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/jeffthedeveloper/" target="_blank" rel="noopener noreferrer"
+            title="LinkedIn">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg"
-              alt="LinkedIn">
+              alt="Ícone LinkedIn">
           </a>
-          <a href="https://github.com/jeffthedeveloper" target="_blank" title="GitHub">
+          <a href="https://github.com/jeffthedeveloper" target="_blank" rel="noopener noreferrer" title="GitHub">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
-              alt="GitHub">
+              alt="Ícone GitHub">
           </a>
           <a href="https://wa.me/5583996258911?text=Ol%C3%A1%2C%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
-            target="_blank" title="WhatsApp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            target="_blank" rel="noopener noreferrer" title="WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Ícone WhatsApp">
           </a>
           <a href="mailto:professorjefferson.site@gmail.com" title="Email">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"
-              style="width:32px; height:32px;">
-          </a>
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Ícone Email"
+              style="width:32px; height:32px;"> </a>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>© 2025 Jefferson Firmino Mendes. Todos os direitos reservados.</p>
+      <p>© <span id="currentYear">2025</span> Jefferson Firmino Mendes. Todos os direitos reservados.</p>
       <div class="high-score">
         VISITANTES DA PÁGINA:&nbsp; <img
           src="https://visitor-badge.laobi.icu/badge?page_id=jeffthedeveloper.github.io.portfolio"
@@ -737,6 +808,10 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // Pequeno script para atualizar o ano no rodapé dinamicamente
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
