@@ -512,16 +512,21 @@
         .form-control {
             width: 100%;
             padding: 10px;
-            border: 2px solid var(--dark);
-            border-radius: 4px;
+            border: 1px solid var(--gray);
+            border-radius: 0px;
             background-color: var(--light);
             font-family: sans-serif;
             transition: border-color 0.3s ease;
         }
 
+        .form-control::placeholder {
+        color: #aaa; /* Ou uma cor mais adequada ao seu tema */
+        opacity: 1; /* Alguns navegadores aplicam opacidade */
+    }
+    
         .form-control:focus {
-            outline: none;
             border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2); /* Adiciona um brilho sutil no foco em vez de só mudar a borda */
         }
 
         .btn-submit {
@@ -1130,7 +1135,7 @@
         <hr>
 
         <!-- Contato -->
-        <section id="contato">
+<section id="contato">
     <h2>📬 Contato</h2>
     <form class="contact-form" id="contactForm">
         <div class="form-group">
@@ -1166,36 +1171,43 @@
         // Animação das barras de skills quando visíveis na tela
         document.addEventListener('DOMContentLoaded', function() {
             const skillBars = document.querySelectorAll('.skill-bar');
+            const skillBarOriginalWidths = new Map(); // Mapa para guardar as larguras originais
+
             
-            // Inicialmente, todas as barras têm largura 0
             skillBars.forEach(bar => {
-                bar.style.width = '0';
+                // 1. Guarda a largura original definida no style inline do HTML (ex: "95%")
+                skillBarOriginalWidths.set(bar, bar.style.width);
+                // 2. Define a largura inicial como 0% para a animação
+                bar.style.width = '0%';
             });
             
             // Função para verificar se um elemento está visível na viewport
             function isElementInViewport(el) {
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
+                if (!el) return false;
+                        const rect = el.getBoundingClientRect();
+                        return (
+                            rect.top < window.innerHeight && rect.bottom >= 0 // Verifica se está verticalmente na tela
+                            // Você pode adicionar rect.left e rect.right se precisar de checagem horizontal completa
+                        );
             }
             
             // Função para animar as barras visíveis
             function animateVisibleBars() {
                 skillBars.forEach(bar => {
-                    if (isElementInViewport(bar)) {
-                        const width = bar.getAttribute('style').replace('width: 0px;', '');
-                        bar.style.width = width;
+                            // Verifica se a barra ainda não foi animada (está em 0%) E se o container PAI dela está visível
+                            if (bar.style.width === '0%' && isElementInViewport(bar.parentElement)) { // Checar o .skill-bar-container ou .skill-item
+                                // Aplica a transição ANTES de mudar a largura para que ela seja animada
+                                bar.style.transition = 'width 1s ease-in-out';
+                                // Restaura a largura original que foi guardada
+                                bar.style.width = skillBarOriginalWidths.get(bar);
+                            }
+                        });
                     }
-                });
-            }
             
             // Animar barras visíveis no carregamento e no scroll
             animateVisibleBars();
-            window.addEventListener('scroll', animateVisibleBars);
+            // Adiciona o listener para o evento de scroll
+            window.addEventListener('scroll', animateVisibleBars, { passive: true }); // { passive: true } para melhor performance de scroll
         });
 
                 document.getElementById('contactForm').addEventListener('submit', function(event) {
