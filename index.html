@@ -10,11 +10,11 @@
         /* Variáveis e Estilos Base */
         :root {
             --primary: #ff6b81;
-            --secondary: #6a0dad;
+            --secondary: #6a0dad; /* Não usado diretamente nas barras, mas bom ter */
             --dark: #222;
-            --light: #f8f8f8;
+            --light: #f8f8f8;    /* Não usado diretamente nas barras, mas bom ter */
             --gray: #ddd;
-            --card-bg: #eee;
+            --card-bg: #eee;     /* Não usado diretamente nas barras, mas bom ter */
             --shadow: 0 2px 5px rgba(0,0,0,0.1);
             --shadow-hover: 0 4px 10px rgba(0,0,0,0.15);
         }
@@ -394,80 +394,65 @@
 }
         
         /* Seção de Skills */
-        .skills-section {
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .skills-category {
-            margin-bottom: 30px;
-        }
-        
-        .skills-category h4 {
-            color: var(--dark); /* Alterado para var(--dark) para melhor contraste, ou use --secondary */
-            margin-bottom: 15px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.9rem;
-        }
-            
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 15px;
-            justify-items: center;
-        }
-        
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 15px;
-            width: 100%;
-        }
-        
-        .skill-icon {
-            height: 40px;
-            width: 40px;
-            margin: 0 auto 5px;
-            object-fit: contain;
-            display: block;
-            transition: transform 0.2s ease;
-        }
-          
-        .skill-icon:hover {
-            transform: scale(1.15);
-        }
-        
-        .skill-name {
-            font-size: 0.7rem;
-            color: var(--dark);
-        }
-        
-        .skill-bar-container {
-            height: 10px;
-            background-color: var(--gray);
-            border-radius: 5px;
-            margin-top: 5px;
-            overflow: hidden;
-            border: 1px solid var(--dark); /* Borda para visibilidade clara */
-            width: 100%; /* Garante que o container da barra ocupe o espaço total do item */
-        }
-        
-        .skill-bar {
-            height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                var(--primary),
-                var(--primary) 10px,
-                var(--secondary) 10px,
-                var(--secondary) 20px
-            );
-            background-size: 40px 100%;
-            border-radius: 5px;
-            transition: width 1s ease-in-out;
-            animation: progress-animation 1s linear infinite, pulse 2s infinite alternate;
-        }
+       .skills-section {
+    text-align: center;
+    margin: 40px 0;
+}
+.skills-category {
+    margin-bottom: 30px;
+}
+.skills-category h4 {
+    color: var(--dark);
+    margin-bottom: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 100%; /* Ocupa a célula da grid */
+}
+.skill-icon {
+    height: 40px;
+    width: 40px;
+    margin: 0 auto 5px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+.skill-icon:hover {
+    transform: scale(1.15);
+}
+.skill-name {
+    font-size: 0.7rem;
+    color: var(--dark);
+}
+
+/* --- ESTILOS CRÍTICOS PARA A BARRA DE PROGRESSO --- */
+.skill-bar-container {
+    height: 10px;
+    background-color: var(--gray); /* Esta é a cor da "barra vazia" */
+    border-radius: 5px;
+    margin-top: 5px;
+    overflow: hidden; /* Essencial para que o .skill-bar não transborde visivelmente */
+    border: 1px solid var(--dark);
+    width: 100%; /* O container da barra ocupa toda a largura do .skill-item */
+    position: relative; /* Adicionado para referência, embora não estritamente necessário aqui */
+}
+
+.skill-bar {
+    height: 100%;
+    background-color: var(--primary); /* Cor da parte PREENCHIDA */
+    border-radius: 5px; /* Para cantos arredondados consistentes */
         
         /* Animação das barras de skill */
         @keyframes pulse {
@@ -476,11 +461,11 @@
             100% { transform: scaleX(1); opacity: 1; }
         }
             
-        /* animação removida pois impedia a proporcionalidade de progresso das barras
+        /* animação removida pois impedia a proporcionalidade de progresso das barras */
         @keyframes progress-animation {
             0% { background-position: 0% 0%; }
             100% { background-position: 200% 0%; }
-        }*/
+        }
         /* Conexões Sociais */
         .social-links {
             text-align: center;
