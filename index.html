@@ -29,12 +29,32 @@
             padding: 0;
         }
 
-        body {
+        /* Ajustando os tamanhos por seção mais claramente*/
+        
+       body {
             font-family: 'Press Start 2P', 'Segoe UI', Tahoma, Geneva, Verdana, Arial, Helvetica, sans-serif;
+            font-size: 12px; /* REDUZIDO do padrão */
             background-color: var(--light);
             color: var(--text-color);
             line-height: 1.7;
+            }
+        
+        h1 {
+            font-size: 28px; /* título principal */
         }
+        
+        h2 {
+            font-size: 22px; /* subtítulo */
+        }
+        
+        h3 {
+            font-size: 18px; /* seções menores */
+        }
+        
+        p, li {
+            font-size: 12px; /* corpo do texto */
+        }
+
 
 
         .pixel-font {
@@ -1460,15 +1480,15 @@
             
             document.getElementById('contactForm').addEventListener('submit', function(event) {
                 event.preventDefault(); 
-
+            
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const subject = document.getElementById('subject').value;
                 const message = document.getElementById('message').value;
-
+            
                 const primaryEmail = 'jeffersonfir@gmail.com';
                 const ccEmails = 'professorjefferson.site@gmail.com,jefferson.mendes@ccc.ufcg.edu.br';
-
+            
                 const encodedSubject = encodeURIComponent("Contato Portfólio: " + subject);
                 const encodedBody = encodeURIComponent(
                     `Nome: ${name}\n` +
@@ -1476,10 +1496,9 @@
                     `Mensagem:\n${message}`
                 );
 
-                const mailtoLink = `mailto:${primaryEmail}?cc=${ccEmails}&subject=${encodedSubject}&body=${encodedBody}`;
+                const mailtoLink = `mailto:${primaryEmail}?cc=${ccEmails}&subject=${encodedSubject}&body=${encodedBody}&reply-to=${encodeURIComponent(email)}`;
                 window.location.href = mailtoLink;
-            });
-        });
+});
     </script>
 </body>
 </html>
