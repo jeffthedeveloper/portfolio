@@ -7,14 +7,14 @@
     <!-- Importação de fontes pixelizadas -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        /* Variáveis e Estilos Base */
+        /* Variáveis e Estilos Base - Consolidados */
         :root {
             --primary: #ff6b81;
-            --secondary: #6a0dad; /* Não usado diretamente nas barras, mas bom ter */
+            --secondary: #6a0dad;
             --dark: #222;
-            --light: #f8f8f8;    /* Não usado diretamente nas barras, mas bom ter */
+            --light: #f8f8f8;
             --gray: #ddd;
-            --card-bg: #eee;     /* Não usado diretamente nas barras, mas bom ter */
+            --card-bg: #eee;
             --shadow: 0 2px 5px rgba(0,0,0,0.1);
             --shadow-hover: 0 4px 10px rgba(0,0,0,0.15);
         }
@@ -132,6 +132,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 3px 0 #d44d5c;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-hire:hover {
@@ -385,87 +387,89 @@
             filter: grayscale(0%);
         }
         
-        :root {
-    /* Definições de cores de exemplo - ajuste conforme o tema do seu site */
-    --primary: #4CAF50; /* Um verde vibrante, por exemplo */
-    --secondary: #FFC107; /* Um amarelo/laranja, por exemplo */
-    --gray: #e0e0e0; /* Um cinza claro */
-    --dark: #333; /* Um cinza escuro para texto e bordas */
-}
-        
-        /* Seção de Skills */
-       .skills-section {
-    text-align: center;
-    margin: 40px 0;
-}
-.skills-category {
-    margin-bottom: 30px;
-}
-.skills-category h4 {
-    color: var(--dark);
-    margin-bottom: 15px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.9rem;
-}
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 15px;
-    justify-items: center;
-}
-.skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 15px;
-    width: 100%; /* Ocupa a célula da grid */
-}
-.skill-icon {
-    height: 40px;
-    width: 40px;
-    margin: 0 auto 5px;
-    object-fit: contain;
-    display: block;
-    transition: transform 0.2s ease;
-}
-.skill-icon:hover {
-    transform: scale(1.15);
-}
-.skill-name {
-    font-size: 0.7rem;
-    color: var(--dark);
-}
-
-/* --- ESTILOS CRÍTICOS PARA A BARRA DE PROGRESSO --- */
-.skill-bar-container {
-    height: 10px;
-    background-color: var(--gray); /* Esta é a cor da "barra vazia" */
-    border-radius: 5px;
-    margin-top: 5px;
-    overflow: hidden; /* Essencial para que o .skill-bar não transborde visivelmente */
-    border: 1px solid var(--dark);
-    width: 100%; /* O container da barra ocupa toda a largura do .skill-item */
-    position: relative; /* Adicionado para referência, embora não estritamente necessário aqui */
-}
-
-.skill-bar {
-    height: 100%;
-    background-color: var(--primary); /* Cor da parte PREENCHIDA */
-    border-radius: 5px; /* Para cantos arredondados consistentes */
-        
-        /* Animação das barras de skill */
-        @keyframes pulse {
-            0% { transform: scaleX(1); }
-            50% { transform: scaleX(1.01); opacity: 0.95; }
-            100% { transform: scaleX(1); opacity: 1; }
+        /* Seção de Skills - Corrigida */
+        .skills-section {
+            text-align: center;
+            margin: 40px 0;
         }
-            
-        /* animação removida pois impedia a proporcionalidade de progresso das barras */
+        
+        .skills-category {
+            margin-bottom: 30px;
+        }
+        
+        .skills-category h4 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px;
+            justify-items: center;
+        }
+        
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 15px;
+            width: 100%; /* Ocupa a célula da grid */
+        }
+        
+        .skill-icon {
+            height: 40px;
+            width: 40px;
+            margin: 0 auto 5px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.2s ease;
+        }
+        
+        .skill-icon:hover {
+            transform: scale(1.15);
+        }
+        
+        .skill-name {
+            font-size: 0.7rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        /* Barras de progresso - Corrigidas com padrão listrado */
+        .skill-bar-container {
+            height: 10px;
+            background-color: var(--gray);
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+            border: 1px solid var(--dark);
+            width: 100%;
+            position: relative;
+        }
+
+        .skill-bar {
+            height: 100%;
+            border-radius: 5px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--primary),
+                var(--primary) 10px,
+                var(--secondary) 10px,
+                var(--secondary) 20px
+            );
+            animation: progress-animation 3s linear infinite;
+            transition: width 1s ease-in-out;
+        }
+
         @keyframes progress-animation {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 0%; }
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 0; }
         }
+
         /* Conexões Sociais */
         .social-links {
             text-align: center;
@@ -487,7 +491,7 @@
             height: 30px;
         }
 
-        /* Formulário de Contato */
+        /* Formulário de Contato - Corrigido e Completo */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -512,21 +516,22 @@
         .form-control {
             width: 100%;
             padding: 10px;
-            border: 1px solid var(--gray);
-            border-radius: 0px;
+            border: 2px solid var(--gray);
+            border-radius: 4px;
             background-color: var(--light);
             font-family: sans-serif;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-control::placeholder {
-        color: #aaa; /* Ou uma cor mais adequada ao seu tema */
-        opacity: 1; /* Alguns navegadores aplicam opacidade */
-    }
+            color: #aaa;
+            opacity: 1;
+        }
     
         .form-control:focus {
+            outline: none;
             border-color: var(--secondary);
-            box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2); /* Adiciona um brilho sutil no foco em vez de só mudar a borda */
+            box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2);
         }
 
         .btn-submit {
@@ -572,9 +577,13 @@
             font-size: 0.7rem;
             color: var(--secondary);
             margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        /* Responsividade */
+        /* Responsividade - Melhorada */
         @media screen and (max-width: 768px) {
             .profile-section {
                 flex-direction: column;
@@ -589,7 +598,7 @@
             }
 
             .skills-grid {
-                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
             }
 
             h2 {
@@ -598,6 +607,11 @@
 
             .profile-text h1 {
                 font-size: 1rem;
+            }
+            
+            .skill-icon {
+                height: 35px;
+                width: 35px;
             }
         }
 
@@ -627,6 +641,19 @@
                 width: 25px;
                 height: 25px;
             }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            }
+            
+            .skill-icon {
+                height: 30px;
+                width: 30px;
+            }
+            
+            .skill-name {
+                font-size: 0.65rem;
+            }
         }
     </style>
 </head>
@@ -643,7 +670,8 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-        <a href="https://wa.me/5583996258911?text=Ol%C3%A1%2C%20Jefferson!%20Tenho%20interesse%20em%20discutir%20uma%20oportunidade%20de%20contrata%C3%A7%C3%A3o." class="btn-hire" target="_blank">CONTRATAR</a>        </nav>
+            <a href="https://wa.me/5583996258911?text=Ol%C3%A1%2C%20Jefferson!%20Tenho%20interesse%20em%20discutir%20uma%20oportunidade%20de%20contrata%C3%A7%C3%A3o." class="btn-hire" target="_blank">CONTRATAR</a>
+        </nav>
     </div>
 
     <div class="container">
@@ -822,7 +850,7 @@
         <hr>
 
         <!-- Interesses e Ferramentas Favoritas -->
-        <section>
+        <section id="interesses">
             <h2>✨ Interesses & Ferramentas Favoritas</h2>
             <p align="center">Clique nos ícones para acessar a documentação oficial de cada tecnologia</p>
             <div class="icon-grid">
@@ -849,391 +877,378 @@
 
         <hr>
         
-<!-- Habilidades Técnicas -->
-        
-<section id="skills">
-    <div class="skills-section">
-        <h2>🚀 Habilidades Técnicas</h2>
+        <!-- Habilidades Técnicas - Corrigido -->
+        <section id="skills">
+            <div class="skills-section">
+                <h2>🚀 Habilidades Técnicas</h2>
 
-        <div class="skills-category">
-            <h4>🏅 Proficiência Alta</h4>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" class="skill-icon" title="Python">
-                    <div class="skill-name">Python</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 95%;"></div>
+                <div class="skills-category">
+                    <h4>🏅 Proficiência Alta</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" class="skill-icon" title="Python" alt="Python">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" class="skill-icon" title="JavaScript" alt="JavaScript">
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" class="skill-icon" title="React" alt="React">
+                            <div class="skill-name">React</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" class="skill-icon" title="Java" alt="Java">
+                            <div class="skill-name">Java</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" class="skill-icon" title="C Language" alt="C Language">
+                            <div class="skill-name">C</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" class="skill-icon" title="Git" alt="Git">
+                            <div class="skill-name">Git</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" class="skill-icon" title="Docker" alt="Docker">
+                            <div class="skill-name">Docker</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" class="skill-icon" title="JavaScript">
-                    <div class="skill-name">JavaScript</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 90%;"></div>
+
+                <div class="skills-category">
+                    <h4>✨ Proficiência Média-Alta</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/tensorflow/tensorflow-original-wordmark.svg" class="skill-icon" title="TensorFlow" alt="TensorFlow">
+                            <div class="skill-name">TensorFlow</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/pytorch/pytorch-original.svg" class="skill-icon" title="PyTorch" alt="PyTorch">
+                            <div class="skill-name">PyTorch</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" class="skill-icon" title="Scikit-learn" alt="Scikit-learn">
+                            <div class="skill-name">Scikit-learn</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original-wordmark.svg" class="skill-icon" title="Jupyter" alt="Jupyter">
+                            <div class="skill-name">Jupyter</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" class="skill-icon" title="Node.js" alt="Node.js">
+                            <div class="skill-name">Node.js</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" class="skill-icon" title="Flask" alt="Flask">
+                            <div class="skill-name">Flask</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original-wordmark.svg" class="skill-icon" title="Spring Boot" alt="Spring Boot">
+                            <div class="skill-name">Spring Boot</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" class="skill-icon" title="MySQL" alt="MySQL">
+                            <div class="skill-name">MySQL</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" class="skill-icon" title="PostgreSQL" alt="PostgreSQL">
+                            <div class="skill-name">PostgreSQL</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 85%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" class="skill-icon" title="React">
-                    <div class="skill-name">React</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 90%;"></div>
+
+                <div class="skills-category">
+                    <h4>💡 Proficiência Média</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" class="skill-icon" title="MongoDB" alt="MongoDB">
+                            <div class="skill-name">MongoDB</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apachespark/apachespark-original.svg" class="skill-icon" title="Spark" alt="Spark">
+                            <div class="skill-name">Spark</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/hadoop/hadoop-original.svg" class="skill-icon" title="Hadoop" alt="Hadoop">
+                            <div class="skill-name">Hadoop</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" class="skill-icon" title="Selenium" alt="Selenium">
+                            <div class="skill-name">Selenium</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" class="skill-icon" title="Linux" alt="Linux">
+                            <div class="skill-name">Linux</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-original.svg" class="skill-icon" title="Bash/Shell" alt="Bash/Shell">
+                            <div class="skill-name">Bash/Shell</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg" class="skill-icon" title="API Rest Design" alt="API Rest Design">
+                            <div class="skill-name">API Rest</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 75%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" class="skill-icon" title="Java">
-                    <div class="skill-name">Java</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" class="skill-icon" title="C Language">
-                    <div class="skill-name">C</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-                 <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" class="skill-icon" title="Git">
-                    <div class="skill-name">Git</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 90%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" class="skill-icon" title="Docker">
-                    <div class="skill-name">Docker</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 85%;"></div>
+
+                <div class="skills-category">
+                    <h4>🌱 Em Aprendizado/Familiaridade</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" class="skill-icon" title="Jest" alt="Jest">
+                            <div class="skill-name">Jest</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 55%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" class="skill-icon" title="TypeScript" alt="TypeScript">
+                            <div class="skill-name">TypeScript</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 55%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" class="skill-icon" title="Redis" alt="Redis">
+                            <div class="skill-name">Redis</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" class="skill-icon" title="Kubernetes" alt="Kubernetes">
+                            <div class="skill-name">Kubernetes</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" class="skill-icon" title="Jenkins" alt="Jenkins">
+                            <div class="skill-name">Jenkins</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="skill-icon" title="Figma" alt="Figma">
+                            <div class="skill-name">Figma</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 55%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" class="skill-icon" title="Vue.js" alt="Vue.js">
+                            <div class="skill-name">Vue.js</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gatsby/gatsby-original.svg" class="skill-icon" title="Gatsby" alt="Gatsby">
+                            <div class="skill-name">Gatsby</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" class="skill-icon" title="Android Native" alt="Android Native">
+                            <div class="skill-name">Android Native</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="width: 40%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="skills-category">
-            <h4>✨ Proficiência Média-Alta</h4>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/tensorflow/tensorflow-original-wordmark.svg" class="skill-icon" title="TensorFlow">
-                    <div class="skill-name">TensorFlow</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/pytorch/pytorch-original.svg" class="skill-icon" title="PyTorch">
-                    <div class="skill-name">PyTorch</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" class="skill-icon" title="Scikit-learn">
-                    <div class="skill-name">Scikit-learn</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 70%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original-wordmark.svg" class="skill-icon" title="Jupyter">
-                    <div class="skill-name">Jupyter</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" class="skill-icon" title="Node.js">
-                    <div class="skill-name">Node.js</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" class="skill-icon" title="Flask">
-                    <div class="skill-name">Flask</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original-wordmark.svg" class="skill-icon" title="Spring Boot">
-                    <div class="skill-name">Spring Boot</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" class="skill-icon" title="MySQL">
-                    <div class="skill-name">MySQL</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" class="skill-icon" title="PostgreSQL">
-                    <div class="skill-name">PostgreSQL</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="skill-icon" title="AWS">
-                    <div class="skill-name">AWS</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" class="skill-icon" title="Azure">
-                    <div class="skill-name">Azure</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 70%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" class="skill-icon" title="Google Cloud">
-                    <div class="skill-name">Google Cloud</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 70%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" class="skill-icon" title="Firebase">
-                    <div class="skill-name">Firebase</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 70%;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="skills-category">
-            <h4>💡 Proficiência Média</h4>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" class="skill-icon" title="MongoDB">
-                    <div class="skill-name">MongoDB</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 65%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apachespark/apachespark-original.svg" class="skill-icon" title="Spark">
-                    <div class="skill-name">Spark</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 65%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/hadoop/hadoop-original.svg" class="skill-icon" title="Hadoop">
-                    <div class="skill-name">Hadoop</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 60%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" class="skill-icon" title="Selenium">
-                    <div class="skill-name">Selenium</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 60%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" class="skill-icon" title="Linux">
-                    <div class="skill-name">Linux</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 70%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-original.svg" class="skill-icon" title="Bash/Shell">
-                    <div class="skill-name">Bash/Shell</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 65%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg" class="skill-icon" title="API Rest Design">
-                    <div class="skill-name">API Rest</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 75%;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="skills-category">
-            <h4>🌱 Em Aprendizado/Familiaridade</h4>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" class="skill-icon" title="Jest">
-                    <div class="skill-name">Jest</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 55%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" class="skill-icon" title="TypeScript">
-                    <div class="skill-name">TypeScript</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 55%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" class="skill-icon" title="Redis">
-                    <div class="skill-name">Redis</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 45%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" class="skill-icon" title="Kubernetes">
-                    <div class="skill-name">Kubernetes</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 50%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" class="skill-icon" title="Jenkins">
-                    <div class="skill-name">Jenkins</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 40%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" class="skill-icon" title="Figma">
-                    <div class="skill-name">Figma</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 50%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg" class="skill-icon" title="Vue.js">
-                    <div class="skill-name">Vue.js</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 50%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gatsby/gatsby-original.svg" class="skill-icon" title="Gatsby">
-                    <div class="skill-name">Gatsby</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 45%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" class="skill-icon" title="Android (Native)">
-                    <div class="skill-name">Android Native</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 40%;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
         <hr>
 
-        <!-- Contato -->
-<section id="contato">
-    <h2>📬 Contato</h2>
-    <form class="contact-form" id="contactForm">
-        <div class="form-group">
-            <label for="name">Nome</label>
-            <input type="text" id="name" class="form-control" placeholder="Seu nome">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com">
-        </div>
-        <div class="form-group">
-            <label for="subject">Assunto</label>
-            <input type="text" id="subject" class="form-control" placeholder="Assunto da mensagem">
-        </div>
-        <div class="form-group">
-            <label for="message">Mensagem</label>
-            <textarea id="message" class="form-control" rows="5" placeholder="Sua mensagem aqui..."></textarea>
-        </div>
-        <button type="submit" class="btn-submit">ENVIAR</button>
-    </form>
+        <!-- Formulário de Contato - Corrigido e Completo -->
+        <section id="contato">
+            <h2>📫 Contato</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" class="form-control" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" class="form-control" placeholder="Assunto da mensagem" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" class="form-control" rows="5" placeholder="Sua mensagem aqui..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">ENVIAR</button>
+                </form>
+            </div>
+            
+            <!-- Links Sociais -->
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/jeffthedeveloper/" target="_blank" title="LinkedIn">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/jeffthedeveloper" target="_blank" title="GitHub">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+                </a>
+                <a href="https://wa.me/5583996258911" target="_blank" title="WhatsApp">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </a>
+            </div>
+        </section>
 
-        <!-- Footer -->
+        <!-- Footer com contador de visitantes dinâmico -->
         <footer class="footer">
-            <p>&copy; 2025 Jefferson Firmino. Todos os direitos reservados.</p>
+            <p>© 2025 Jefferson Firmino. Todos os direitos reservados.</p>
             <div class="high-score">
-                VISITANTES: 00042
+                VISITANTES: 
+                <img src="https://komarev.com/ghpvc/?username=jeffthedeveloper&label=&color=6a0dad&style=flat-square" alt="Contador de Visitantes" title="Número de visitantes do perfil">
             </div>
         </footer>
     </div>
 
-    <!-- Scripts JS para interatividade -->
+    <!-- Scripts -->
     <script>
-        // Animação das barras de skills quando visíveis na tela
         document.addEventListener('DOMContentLoaded', function() {
+            // Armazenar larguras originais das barras de progresso
+            const skillBarOriginalWidths = new Map();
             const skillBars = document.querySelectorAll('.skill-bar');
-            const skillBarOriginalWidths = new Map(); // Mapa para guardar as larguras originais
-
             
+            // Guardar as larguras originais
             skillBars.forEach(bar => {
-                // 1. Guarda a largura original definida no style inline do HTML (ex: "95%")
                 skillBarOriginalWidths.set(bar, bar.style.width);
-                // 2. Define a largura inicial como 0% para a animação
-                bar.style.width = '0%';
+                // Inicialmente, definir largura como 0 para animação
+                bar.style.width = '0';
             });
             
             // Função para verificar se um elemento está visível na viewport
             function isElementInViewport(el) {
-                if (!el) return false;
-                        const rect = el.getBoundingClientRect();
-                        return (
-                            rect.top < window.innerHeight && rect.bottom >= 0 // Verifica se está verticalmente na tela
-                            // Você pode adicionar rect.left e rect.right se precisar de checagem horizontal completa
-                        );
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
             }
             
-            // Função para animar as barras visíveis
+            // Função para animar barras visíveis
             function animateVisibleBars() {
                 skillBars.forEach(bar => {
-                            // Verifica se a barra ainda não foi animada (está em 0%) E se o container PAI dela está visível
-                            if (bar.style.width === '0%' && isElementInViewport(bar.parentElement)) { // Checar o .skill-bar-container ou .skill-item
-                                // Aplica a transição ANTES de mudar a largura para que ela seja animada
-                                bar.style.transition = 'width 1s ease-in-out';
-                                // Restaura a largura original que foi guardada
-                                bar.style.width = skillBarOriginalWidths.get(bar);
-                            }
-                        });
+                    if (isElementInViewport(bar)) {
+                        // Restaura a largura original que foi guardada
+                        bar.style.width = skillBarOriginalWidths.get(bar);
                     }
+                });
+            }
             
             // Animar barras visíveis no carregamento e no scroll
             animateVisibleBars();
             // Adiciona o listener para o evento de scroll
-            window.addEventListener('scroll', animateVisibleBars, { passive: true }); // { passive: true } para melhor performance de scroll
-        });
+            window.addEventListener('scroll', animateVisibleBars, { passive: true });
+            
+            // Manipulador do formulário de contato
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede o envio padrão do formulário
 
-                document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+                const primaryEmail = 'jeffersonfir@gmail.com';
+                const ccEmails = 'professorjefferson.site@gmail.com,jefferson.mendes@ccc.ufcg.edu.br';
 
-            const primaryEmail = 'jeffersonfir@gmail.com';
-            const ccEmails = 'professorjefferson.site@gmail.com,jefferson.mendes@ccc.ufcg.edu.br';
+                // Codifica os valores para URL para evitar problemas com caracteres especiais
+                const encodedSubject = encodeURIComponent(subject);
+                const encodedBody = encodeURIComponent(
+                    `Nome: ${name}\n` +
+                    `Email: ${email}\n\n` +
+                    `${message}`
+                );
 
-            // Codifica os valores para URL para evitar problemas com caracteres especiais
-            const encodedSubject = encodeURIComponent(subject);
-            const encodedBody = encodeURIComponent(
-                `Nome: ${name}\n` +
-                `Email: ${email}\n\n` +
-                `${message}`
-            );
+                // Constrói o link mailto
+                const mailtoLink = `mailto:${primaryEmail}?cc=${ccEmails}&subject=${encodedSubject}&body=${encodedBody}`;
 
-            // Constrói o link mailto
-            const mailtoLink = `mailto:${primaryEmail}?cc=${ccEmails}&subject=${encodedSubject}&body=${encodedBody}`;
-
-            // Abre o cliente de e-mail
-            window.location.href = mailtoLink;
+                // Abre o cliente de e-mail
+                window.location.href = mailtoLink;
+            });
         });
     </script>
 </body>
