@@ -401,29 +401,54 @@
             font-family: 'Press Start 2P', cursive;
             font-size: 0.9rem;
         }
-
+        
         .skills-grid {
+        
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 15px;
-            justify-items: center;
+        
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Garante que cada item tenha espaço */
+        
+            gap: 15px; /* Espaço entre os itens da grid */
+        
+            justify-items: center; /* Centraliza os itens dentro de suas células na grid */
+        
         }
 
         .skill-item {
-            text-align: center;
-            width: 100%;
+        
+            display: flex;
+        
+            flex-direction: column; /* Coloca o ícone, nome e barra em coluna */
+        
+            align-items: center; /* Centraliza horizontalmente */
+        
+            text-align: center; /* Centraliza o texto */
+        
+            margin-bottom: 15px; /* Espaço entre os itens */
+        
+            width: 100%; /* Garante que o item ocupe a largura disponível na grid */
+        
         }
 
-        .skill-icon {
-            width: 40px;
-            height: 40px;
-            margin: 0 auto 5px;
-            transition: transform 0.2s ease;
-        }
-
+           .skill-icon {
+    
+        height: 40px; /* Defina a altura desejada */
+    
+        width: 40px;  /* Defina a largura desejada (igual à altura para formato quadrado) */
+    
+        margin: 0 auto 5px; /* Centraliza o ícone e adiciona margem inferior */
+    
+        object-fit: contain; /* Garante que a imagem caiba dentro das dimensões sem distorção */
+    
+        display: block; /* Garante que o ícone ocupe seu próprio espaço */
+    
+        transition: transform 0.2s ease; /* Mantém a animação de hover existente */ 
+           }
+  
         .skill-icon:hover {
-            transform: scale(1.15);
-        }
+    
+        transform: scale(1.15); /* Efeito de zoom no hover */
+     }
 
         .skill-name {
             font-size: 0.7rem;
