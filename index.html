@@ -217,6 +217,23 @@
         .profile-text .sobre-mim-paragrapgh {
              text-align: justify;
         }
+        .sobre-mim-lista {
+            list-style: none;
+            padding-left: 0;
+            text-align: left;
+        }
+        .sobre-mim-lista li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .sobre-mim-lista img.svg-icon {
+            width: 20px; /* Ajustado para consistência */
+            height: 20px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
 
         /* Seção de Projetos em Destaque (Nova) */
         .featured-projects-section {
@@ -226,7 +243,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustado para melhor encaixe */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajustado para melhor encaixe, permitindo até 4 por linha em telas largas */
             gap: 25px;
             margin-top: 25px;
         }
@@ -239,6 +256,9 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center; /* Centralizar conteúdo do card */
             border: 1px solid var(--gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Para alinhar o botão no final */
         }
 
         .project-card:hover {
@@ -250,9 +270,24 @@
         .project-card img.project-icon {
             width: 60px; /* Tamanho dos ícones de projeto */
             height: 60px;
-            margin-bottom: 15px;
+            margin: 0 auto 15px auto; /* Centraliza horizontalmente */
             object-fit: contain; /* Para não distorcer os ícones */
         }
+        
+        .project-card .project-icon-placeholder {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px auto;
+            background-color: var(--gray);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--light);
+            font-family: 'Press Start 2P', cursive;
+        }
+
 
         .project-card h5 {
             color: var(--primary); /* Cor primária para títulos de projeto */
@@ -261,11 +296,12 @@
             font-weight: 600;
         }
 
-        .project-card p {
+        .project-card p.project-description {
             font-size: 0.9em;
             color: var(--text-color);
             margin-bottom: 12px;
-            min-height: 50px; /* Para alinhar cards com descrições de tamanhos diferentes */
+            flex-grow: 1; /* Faz a descrição ocupar o espaço disponível */
+            min-height: 60px; /* Altura mínima para consistência */
         }
         .project-card a.project-link {
             display: inline-block;
@@ -275,6 +311,7 @@
             border-radius: 5px;
             font-size: 0.8em;
             font-weight: bold;
+            margin-top: auto; /* Empurra o botão para baixo */
         }
         .project-card a.project-link:hover {
             background-color: var(--primary);
@@ -386,7 +423,7 @@
 
         .certifications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajustado */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustado para caber mais info */
             gap: 25px; /* Ajustado */
             margin-top: 25px;
         }
@@ -398,7 +435,7 @@
             box-shadow: var(--shadow);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-align: left;
-            border: 1px solid transparent; /* Borda inicial transparente */
+            border: 1px solid var(--gray); 
         }
 
         .certification-card:hover {
@@ -407,15 +444,30 @@
             border-color: var(--primary); /* Borda com cor primária no hover */
         }
 
-        .certification-card img {
-            width: 45px; /* Ajustado */
-            height: 45px;
+        .certification-card img.cert-icon {
+            width: 45px; 
+            height: auto; /* Manter proporção */
+            max-height: 45px; /* Limitar altura */
             margin-bottom: 12px;
             display: block;
             margin-left: auto;
             margin-right: auto;
             object-fit: contain;
         }
+         .certification-card span.cert-icon-placeholder { /* Placeholder para ícones quebrados */
+            display: block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            margin: 0 auto 12px auto;
+            background-color: var(--gray);
+            color: var(--light);
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
 
         .certification-card h5 {
             color: var(--primary); /* Cor primária para títulos */
@@ -433,10 +485,12 @@
         /* Ícones Quadrados Interativos (Ferramentas Favoritas) */
         .icon-grid {
             display: flex;
-            justify-content: center;
+            justify-content: center; /* Centraliza os ícones se não preencherem a linha */
+            align-items: flex-start; /* Alinha itens no topo */
             gap: 20px; /* Ajustado */
-            margin: 45px 0; /* Ajustado */
+            margin: 45px auto; /* Centraliza a grid */
             flex-wrap: wrap;
+            max-width: 800px; /* Define uma largura máxima para a grid */
         }
 
         .icon-square {
@@ -482,6 +536,7 @@
             z-index: 2;
             filter: grayscale(30%); /* Menos grayscale */
             transition: filter 0.2s ease, transform 0.2s ease;
+            object-fit: contain;
         }
 
         .icon-square:hover img {
@@ -530,6 +585,12 @@
             display: block;
             transition: transform 0.2s ease;
         }
+        img.skill-icon.placeholder { /* Estilo para placeholder de ícone de skill */
+            background-color: var(--gray);
+            padding: 5px;
+            border-radius: 4px;
+        }
+
         
         .skill-icon:hover {
             transform: scale(1.1);
@@ -690,6 +751,16 @@
         }
 
         /* Responsividade - Melhorada */
+        @media screen and (max-width: 992px) { /* Breakpoint para tablets maiores */
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+             .certifications-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+
         @media screen and (max-width: 768px) {
             .profile-section {
                 flex-direction: column;
@@ -704,7 +775,10 @@
             }
 
             .certifications-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajustado */
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+            }
+             .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             }
 
             .skills-grid {
@@ -731,6 +805,10 @@
             .timeline-item-h {
                 flex: 0 0 150px; /* Ajustado */
             }
+            
+            .projects-grid {
+                grid-template-columns: 1fr; /* Uma coluna para projetos */
+            }
 
             .certifications-grid {
                 grid-template-columns: 1fr; /* Uma coluna para cards de certificação */
@@ -738,7 +816,13 @@
 
             .icon-grid {
                 gap: 15px;
+                justify-content: space-around; /* Para melhor distribuição em telas pequenas */
             }
+            .icon-grid .icon-square {
+                 flex-basis: calc(33.333% - 10px); /* Tenta colocar 3 por linha */
+                 max-width: 60px; /* Garante que não fiquem muito grandes */
+            }
+
 
             .icon-square {
                 width: 60px;
@@ -794,7 +878,7 @@
                 <h1 class="main-title">Olá 👋, eu sou Jefferson Firmino</h1>
                 <h3 class="subtitle">Desenvolvedor Full Stack | Cientista de Dados | Engenheiro de IA</h3>
                 <p class="sobre-mim-paragrapgh">
-                    Um entusiasta da tecnologia resiliente e adaptável, com mais de 10 anos de experiência imersiva em Python e Java, especializado em automação de processos, desenvolvimento de LLMs e MLOps. [cite: 614, 615] Minha trajetória é marcada pela paixão em transformar desafios complexos em soluções inovadoras e eficientes, tanto em projetos open-source quanto em iniciativas privadas. [cite: 615, 618] Fluente em Inglês, Espanhol e Português. [cite: 616]
+                    Um entusiasta da tecnologia resiliente e adaptável, com mais de 10 anos de experiência imersiva em Python e Java, especializado em automação de processos, desenvolvimento de LLMs e MLOps. Minha trajetória é marcada pela paixão em transformar desafios complexos em soluções inovadoras e eficientes, tanto em projetos open-source quanto em iniciativas privadas. Fluente em Inglês, Espanhol e Português.
                 </p>
             </div>
         </div>
@@ -806,14 +890,14 @@
             <p align="center" class="sobre-mim-paragrapgh">
                 Minha carreira é definida pela persistência e uma busca incessante por conhecimento, superando desafios acadêmicos e profissionais que solidificaram minha resiliência e capacidade de adaptação. Hoje, aplico essa vivência no desenvolvimento de soluções de software robustas, criativas e orientadas a resultados, com ênfase em aplicações de Inteligência Artificial e Ciência de Dados.
             </p>
-            <p align="center">
-                - 🔭 Atualmente imerso em <strong>Projetos de Automação Inteligente, LLM/MLOps e Data Science Aplicada</strong><br>
-                - 🌱 Aprofundando conhecimentos em <strong>Big Data (Hadoop, Spark), IA Generativa Avançada e Arquiteturas Cloud Native</strong> [cite: 623, 626, 631]<br>
-                - 👯 Buscando colaborar com <strong>Empresas Visionárias, Startups Inovadoras e Projetos Open Source de Impacto Social e Tecnológico</strong><br>
-                - 🤝 Aberto a oportunidades desafiadoras em <strong>Desenvolvimento Full Stack Sênior, Data Science Lead e Engenharia de IA Especializada</strong><br>
-                - 📫 Conecte-se comigo: <a href="mailto:professorjefferson.site@gmail.com">professorjefferson.site@gmail.com</a> [cite: 613]<br>
-                - ⚡ Fato divertido: Cada linha de código é uma nova descoberta e uma peça no quebra-cabeça da inovação! 😄
-            </p>
+            <ul class="sobre-mim-lista">
+                <li><img src="https://heroicons.com/i/computer-desktop.svg" class="svg-icon" alt="Desktop Icon"> Atualmente imerso em <strong>Projetos de Automação Inteligente, LLM/MLOps e Data Science Aplicada</strong></li>
+                <li><img src="https://tabler-icons.io/static/icons/book.svg" class="svg-icon" alt="Book Icon"> Aprofundando conhecimentos em <strong>Big Data (Hadoop, Spark), IA Generativa Avançada e Arquiteturas Cloud Native</strong></li>
+                <li><img src="https://tabler-icons.io/static/icons/building.svg" class="svg-icon" alt="Building Icon"> Buscando colaborar com <strong>Empresas Visionárias, Startups Inovadoras e Projetos Open Source de Impacto Social e Tecnológico</strong></li>
+                <li><img src="https://tabler-icons.io/static/icons/handshake.svg" class="svg-icon" alt="Handshake Icon"> Aberto a oportunidades desafiadoras em <strong>Desenvolvimento Full Stack Sênior, Data Science Lead e Engenharia de IA Especializada</strong></li>
+                <li><img src="https://heroicons.com/i/envelope.svg" class="svg-icon" alt="Mail Icon"> Conecte-se comigo: <a href="mailto:professorjefferson.site@gmail.com">professorjefferson.site@gmail.com</a></li>
+                <li><img src="https://tabler-icons.io/static/icons/building-bridge.svg" class="svg-icon" alt="Bridge Icon"> Fato divertido: Cada linha de código é uma nova descoberta e uma peça no quebra-cabeça da inovação! 😄</li>
+            </ul>
         </section>
 
         <hr>
@@ -822,40 +906,64 @@
             <h2>🛠️ Projetos em Destaque</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="icon_ai_flask.jpg" alt="Ícone Projeto IA com Flask" class="project-icon">
+                    <img src="icon_ai_flask.webp" alt="Ícone Projeto IA com Flask" class="project-icon">
                     <h5>IA Generativa com Flask</h5>
-                    <p>Deploy de modelos GPT-J 6B e LLMOps/MLOps com PyTorch e Flask para alta performance. [cite: 1847, 1860]</p>
+                    <p class="project-description">IA generativa, GPT-J, Flask, PyTorch, Transformers.</p>
                     <a href="https://github.com/jeffthedeveloper/pocketAI" class="project-link" target="_blank">Ver no GitHub</a>
                 </div>
                 <div class="project-card">
-                    <img src="icon_api_backend.jpg" alt="Ícone Projeto API Backend" class="project-icon">
+                    <img src="icon_api_backend.webp" alt="Ícone Projeto API Backend" class="project-icon">
                     <h5>API REST com Python</h5>
-                    <p>Desenvolvimento de API RESTful para gerenciamento de dados e CRUD operations. [cite: 637, 1835]</p>
+                    <p class="project-description">API REST, Flask, FastAPI, backend Python, autenticação, integração de dados.</p>
                     <a href="https://github.com/jeffthedeveloper/project-synapsesmith" class="project-link" target="_blank">Ver no GitHub</a>
                 </div>
                 <div class="project-card">
-                    <img src="icon_covid_analysis.jpg" alt="Ícone Análise COVID-19" class="project-icon">
+                    <img src="icon_bookmarks.webp" alt="Ícone Importador de Bookmarks" class="project-icon">
+                    <h5>Importador de Bookmarks</h5>
+                    <p class="project-description">Automatização de favoritos, leitura TXT, geração de HTML, Python.</p>
+                    <a href="https://github.com/jeffthedeveloper/import-bookmarks" class="project-link" target="_blank">Ver no GitHub</a>
+                </div>
+                <div class="project-card">
+                    <img src="icon_calculator.webp" alt="Ícone Calculadora de Notas" class="project-icon">
+                    <h5>Calculadora de Notas</h5>
+                    <p class="project-description">Projeto open source, cálculo de notas, HTML, CSS, JavaScript.</p>
+                    <a href="https://github.com/jeffthedeveloper/calculadora-notas" class="project-link" target="_blank">Ver no GitHub</a>
+                </div>
+                <div class="project-card">
+                    <img src="icon_covid_analysis.webp" alt="Ícone Análise COVID-19" class="project-icon">
                     <h5>Análise de Dados COVID-19</h5>
-                    <p>Análise da pandemia utilizando Python (Pandas, Matplotlib, Seaborn) para insights e visualizações. [cite: 635, 1815]</p>
+                    <p class="project-description">Análise de dados, Pandas, Matplotlib, Seaborn, insights da pandemia.</p>
                     <a href="https://github.com/jeffthedeveloper/Applied-Data-Science-Capstone-End-to-End-Analysis-with-Python-SQL-and-Machine-Learning/tree/main/COVID-19%20Data%20Analysis%20Using%20Python" class="project-link" target="_blank">Ver no GitHub</a>
                 </div>
                 <div class="project-card">
-                    <img src="icon_etl_spotify.jpg" alt="Ícone ETL Spotify" class="project-icon">
-                    <h5>ETL Pipeline com Spotify API</h5>
-                    <p>Coleta, transformação e carga de dados da API do Spotify utilizando Python e Pandas. [cite: 1843, 1180]</p>
-                    <a href="https://github.com/jeffthedeveloper/Applied-Data-Science-Capstone-End-to-End-Analysis-with-Python-SQL-and-Machine-Learning/tree/main/ETL%20Pipelines%20con%20Python%20Recopila%20datos%20de%20Spotify" class="project-link" target="_blank">Ver no GitHub</a>
-                </div>
-                 <div class="project-card">
-                    <img src="icon_data_system.jpg" alt="Ícone Data Analysis System" class="project-icon">
+                    <img src="icon_data_system.webp" alt="Ícone Data Analysis System" class="project-icon">
                     <h5>Sistema de Análise de Dados</h5>
-                    <p>Integração de SQL, Python (Pandas, ReportLab, Matplotlib) para geração de relatórios e insights. [cite: 1878]</p>
+                    <p class="project-description">Integração SQL + Python, geração de relatórios PDF, gráficos visuais, automação de dados.</p>
                     <a href="https://github.com/jeffthedeveloper/Data-Analysis-System" class="project-link" target="_blank">Ver no GitHub</a>
                 </div>
                 <div class="project-card">
-                    <img src="icon_calculator.jpg" alt="Ícone Calculadora de Notas" class="project-icon">
-                    <h5>Calculadora de Notas</h5>
-                    <p>Projeto Open Source em HTML, CSS e JavaScript para calcular a menor quantidade de cédulas para pagamentos. [cite: 1819, 1825]</p>
-                    <a href="https://github.com/jeffthedeveloper/calculadora-notas" class="project-link" target="_blank">Ver no GitHub</a>
+                    <img src="icon_etl_spotify.webp" alt="Ícone ETL Spotify" class="project-icon">
+                    <h5>ETL Pipeline com Spotify API</h5>
+                    <p class="project-description">Pipeline ETL, Spotify API, Pandas, transformação de dados.</p>
+                    <a href="https://github.com/jeffthedeveloper/Applied-Data-Science-Capstone-End-to-End-Analysis-with-Python-SQL-and-Machine-Learning/tree/main/ETL%20Pipelines%20con%20Python%20Recopila%20datos%20de%20Spotify" class="project-link" target="_blank">Ver no GitHub</a>
+                </div>
+                <div class="project-card">
+                    <img src="icon_game_rpg.webp" alt="Ícone Jogo RPG" class="project-icon">
+                    <h5>Jogo de RPG (React)</h5>
+                    <p class="project-description">Jogo RPG interativo feito em React.js, foco em experiência lúdica e gamificação.</p>
+                    <a href="https://github.com/jeffthedeveloper/project-trivia-game" class="project-link" target="_blank">Ver no GitHub</a>
+                </div>
+                 <div class="project-card">
+                    <img src="icon_react_native.webp" alt="Ícone App Mobile React Native" class="project-icon">
+                    <h5>Apps Mobile (React Native)</h5>
+                    <p class="project-description">App mobile com React Native, experiência de usuário, agendamento/barbearia ou transporte.</p>
+                    <a href="https://github.com/jeffthedeveloper/nativesapp" class="project-link" target="_blank">Ver no GitHub</a>
+                </div>
+                <div class="project-card">
+                    <img src="LLMOPS-MLOPS.webp" alt="Ícone LLMOps e MLOps" class="project-icon">
+                    <h5>LLMOps e MLOps com Flask</h5>
+                    <p class="project-description">Monitoramento e otimização de modelos LLM/ML, Flask, Pandas, TensorFlow, integração robusta.</p>
+                    <a href="https://github.com/jeffthedeveloper?tab=repositories&q=mlops" class="project-link" target="_blank">Ver no GitHub</a>
                 </div>
             </div>
         </section>
@@ -872,7 +980,7 @@
                             <h4>Pós-Graduação em Big Data & Data Science</h4>
                             <span class="date">2025 - 2026 (Em curso)</span>
                             <p>@ Univitória</p>
-                            <p>Foco: Big Data, Hadoop, Spark, NoSQL, IA & Machine Learning. [cite: 622, 626]</p>
+                            <p>Foco: Big Data, Hadoop, Spark, NoSQL, IA & Machine Learning.</p>
                         </div>
                     </div>
                     <div class="timeline-item-h">
@@ -881,7 +989,7 @@
                             <h4>Licenciatura em Matemática</h4>
                             <span class="date">2024 - 2025 (Em curso)</span>
                             <p>@ UNOPAR</p>
-                            <p>Fortalecimento da base lógica e analítica para Data Science. [cite: 629]</p>
+                            <p>Fortalecimento da base lógica e analítica para Data Science.</p>
                         </div>
                     </div>
                     <div class="timeline-item-h">
@@ -890,7 +998,7 @@
                             <h4>Pós-Graduação em Engenharia de Software</h4>
                             <span class="date">Concluído em 2023</span>
                             <p>@ Faculdade Focus</p>
-                            <p>Foco: Métodos Ágeis, Governança de TI, Análise de Sistemas. [cite: 628]</p>
+                            <p>Foco: Métodos Ágeis, Governança de TI, Análise de Sistemas.</p>
                         </div>
                     </div>
                     <div class="timeline-item-h">
@@ -899,7 +1007,7 @@
                             <h4>Análise e Desenvolvimento de Sistemas (ADS)</h4>
                             <span class="date">2021 - 2022</span>
                             <p>@ UNOPAR</p>
-                            <p>Foco: SQL, Modelagem de Dados, Análise de Dados. [cite: 630]</p>
+                            <p>Foco: SQL, Modelagem de Dados, Análise de Dados.</p>
                         </div>
                     </div>
                     <div class="timeline-item-h">
@@ -914,27 +1022,27 @@
                      <div class="timeline-item-h">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content-h">
-                            <h4>Ciências Contábeis (Incompleto)</h4>
+                            <h4>Ciências Contábeis (Cursado)</h4>
                             <span class="date">2017 - 2019</span>
                             <p>@ UEPB</p>
-                            <p>Cadeiras cursadas: Matemática Aplicada (9.8), Direito Empresarial (9.5), Mercado Financeiro (9.8). [cite: 650]</p>
+                            <p>Disciplinas: Mat. Aplicada (9.8), Dir. Empresarial (9.5), Mercado Financeiro (9.8).</p>
                         </div>
                     </div>
                     <div class="timeline-item-h">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content-h">
-                            <h4>Ciência da Computação (Incompleto)</h4>
+                            <h4>Ciência da Computação (Cursado)</h4>
                             <span class="date">2015 - 2016</span>
                             <p>@ UFCG</p>
-                            <p>Cadeiras cursadas: Lab. de Programação I (8.2), Programação I (8.2), Intro. à Computação (7.5). [cite: 651]</p>
+                            <p>Disciplinas: Lab. Prog. I (8.2), Prog. I (8.2), Intro. Comp. (7.5).</p>
                         </div>
                     </div>
                     <div class="timeline-item-h">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content-h">
                             <h4>Técnico em Suporte e Manutenção de Informática</h4>
-                            <span class="date">Ano de Conclusão (ex: 2014)</span>
-                            <p>@ Instituição (ex: SENAI/ETEC)</p>
+                            <span class="date">Concluído (Ex: 2014)</span>
+                            <p>@ Instituição (Ex: Escola Técnica)</p>
                             <p>Fundamentos de hardware, software e redes.</p>
                         </div>
                     </div>
@@ -954,7 +1062,7 @@
                             <h4>Desenvolvedor Full Stack & Cientista de Dados Freelance</h4>
                             <span class="date">2022 - Presente</span>
                             <p>@ Autônomo</p>
-                            <p>Soluções web e mobile, automação, análise de dados (Python, Java, React, Node, SQL, Power BI). [cite: 617, 618, 621]</p>
+                            <p>Soluções web e mobile, automação, análise de dados (Python, Java, React, Node, SQL, Power BI).</p>
                         </div>
                     </div>
                     <div class="timeline-item-h">
@@ -963,7 +1071,7 @@
                             <h4>Pesquisador Acadêmico (Data Science)</h4>
                             <span class="date">2025 - Presente</span>
                             <p>@ Univitória (Pós-Graduação)</p>
-                            <p>Pesquisa em IA, Machine Learning (PyTorch, TensorFlow) e Big Data (Hadoop, Spark). [cite: 622, 623]</p>
+                            <p>Pesquisa em IA, Machine Learning (PyTorch, TensorFlow) e Big Data (Hadoop, Spark).</p>
                         </div>
                     </div>
                     <div class="timeline-item-h">
@@ -1005,40 +1113,40 @@
                 <p>Compromisso contínuo com o aprendizado e aprimoramento técnico em tecnologias de ponta.</p>
                 <div class="certifications-grid">
                     <div class="certification-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/IBM_logo.svg/800px-IBM_logo.svg.png" alt="IBM Icon" style="width: 60px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo" class="cert-icon">
                         <h5>IBM Data Science Professional Certificate</h5>
                         <p>IBM (Coursera)</p>
-                        <p>Python, SQL, Machine Learning, Data Analysis, Visualization. [cite: 640]</p>
+                        <p>Python, SQL, Machine Learning, Data Analysis, Visualization.</p>
                     </div>
                      <div class="certification-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/IBM_logo.svg/800px-IBM_logo.svg.png" alt="IBM Icon" style="width: 60px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo" class="cert-icon">
                         <h5>IBM Linux Commands and Shell Scripting</h5>
                         <p>IBM (Coursera)</p>
-                        <p>Administração Linux, Bash/Shell Scripting, Automação. [cite: 640, 1057]</p>
+                        <p>Administração Linux, Bash/Shell Scripting, Automação.</p>
                     </div>
                     <div class="certification-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" alt="Microsoft Icon" style="width: 50px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" alt="Microsoft Icon" class="cert-icon">
                         <h5>Azure Fundamentals (AZ-900)</h5>
                         <p>Microsoft</p>
-                        <p>Fundamentos de serviços de nuvem do Azure. [cite: 1058, 1063]</p>
+                        <p>Fundamentos de serviços de nuvem do Azure.</p>
                     </div>
                      <div class="certification-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png" alt="Google Icon" style="width: 50px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png" alt="Google Icon" class="cert-icon">
                         <h5>Google IT Support Professional</h5>
                         <p>Google (Coursera)</p>
                         <p>Suporte de TI, Redes, Sistemas Operacionais, Segurança.</p>
                     </div>
                     <div class="certification-card">
-                        <img src="https://www.hackerrank.com/wp-content/uploads/2018/08/hackerrank_logo.png" alt="HackerRank Icon" style="width: 70px;">
+                        <img src="https://logowik.com/content/uploads/images/hackerrank8636.jpg" alt="HackerRank Icon" class="cert-icon">
                         <h5>Software Engineer Role Certificate</h5>
                         <p>HackerRank</p>
-                        <p>Problem solving, SQL, REST API. [cite: 981, 983]</p>
+                        <p>Problem solving, SQL, REST API.</p>
                     </div>
                      <div class="certification-card">
-                        <img src="https://www.hackerrank.com/wp-content/uploads/2018/08/hackerrank_logo.png" alt="HackerRank Icon" style="width: 70px;">
+                        <img src="https://logowik.com/content/uploads/images/hackerrank8636.jpg" alt="HackerRank Icon" class="cert-icon">
                         <h5>Java (Basic) Certificate</h5>
                         <p>HackerRank</p>
-                        <p>Fundamentos de programação Java. [cite: 984]</p>
+                        <p>Fundamentos de programação Java.</p>
                     </div>
                 </div>
                 <p style="margin-top: 20px;"><i>*Lista resumida. Mais de 285 certificações. Para detalhes, visite meu <a href="https://github.com/jeffthedeveloper/Certifications_Academic" target="_blank">repositório de certificações</a>.</i></p>
@@ -1058,7 +1166,7 @@
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" alt="Java">
                 </a>
                 <a href="https://www.tensorflow.org/api_docs" target="_blank" class="icon-square" title="TensorFlow">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/tensorflow/tensorflow-original-wordmark.svg" alt="TensorFlow">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original-wordmark.svg" alt="TensorFlow">
                 </a>
                  <a href="https://pytorch.org/docs/stable/index.html" target="_blank" class="icon-square" title="PyTorch">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch">
@@ -1079,13 +1187,13 @@
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="Docker">
                 </a>
                  <a href="https://cloud.google.com/docs" target="_blank" class="icon-square" title="Google Cloud Platform">
-                    <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="Google Cloud">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud">
                 </a>
                   <a href="https://aws.amazon.com/documentation/" target="_blank" class="icon-square" title="Amazon Web Services">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
                 </a>
                  <a href="https://learn.microsoft.com/en-us/azure/?product=popular" target="_blank" class="icon-square" title="Microsoft Azure">
-                     <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="Azure Icon">
+                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure Icon">
                  </a>
             </div>
         </section>
@@ -1125,7 +1233,7 @@
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 70%;"></div></div>
                         </div>
                          <div class="skill-item" title="API RESTful Design">
-                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg" class="skill-icon" alt="API Rest Design">
+                             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" class="skill-icon" alt="API Rest Design">
                              <div class="skill-name">APIs RESTful</div>
                              <div class="skill-bar-container"><div class="skill-bar" style="width: 85%;"></div></div>
                          </div>
@@ -1161,7 +1269,7 @@
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 80%;"></div></div>
                         </div>
                          <div class="skill-item" title="Figma (Prototipagem)">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="skill-icon" alt="Figma">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" class="skill-icon" alt="Figma">
                             <div class="skill-name">Figma</div>
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 65%;"></div></div>
                         </div>
@@ -1172,12 +1280,12 @@
                     <h4>🧠 Inteligência Artificial & Data Science</h4>
                     <div class="skills-grid">
                         <div class="skill-item" title="Machine Learning (Scikit-learn)">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" class="skill-icon" alt="Scikit-learn">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" class="skill-icon" alt="Scikit-learn">
                             <div class="skill-name">Machine Learning</div>
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 80%;"></div></div>
                         </div>
                         <div class="skill-item" title="Deep Learning (TensorFlow, PyTorch)">
-                             <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/tensorflow/tensorflow-original-wordmark.svg" class="skill-icon" alt="TensorFlow">
+                             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original-wordmark.svg" class="skill-icon" alt="TensorFlow">
                             <div class="skill-name">Deep Learning</div>
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 75%;"></div></div>
                         </div>
@@ -1187,17 +1295,17 @@
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 90%;"></div></div>
                         </div>
                          <div class="skill-item" title="Power BI, Matplotlib, Seaborn">
-                             <img src="https://learn.microsoft.com/azure/architecture/solution-ideas/media/power-bi.png" class="skill-icon" alt="Power BI" style="padding: 5px;">
+                             <img src="https://raw.githubusercontent.com/microsoft/PowerBI-Icons/main/PNG/Power-BI.png" class="skill-icon placeholder" alt="Power BI" >
                             <div class="skill-name">Visualização de Dados</div>
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 85%;"></div></div>
                         </div>
                         <div class="skill-item" title="NLP (spaCy, NLTK, Hugging Face)">
-                            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" class="skill-icon" alt="Hugging Face" style="padding: 5px;">
+                            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" class="skill-icon" alt="Hugging Face">
                             <div class="skill-name">NLP</div>
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 70%;"></div></div>
                         </div>
                          <div class="skill-item" title="LLMs, MLOps, IA Generativa">
-                             <img src="icon_ai_flask.jpg" class="skill-icon" alt="LLMs/MLOps">
+                             <img src="LLMOPS-MLOPS.webp" class="skill-icon" alt="LLMOps e MLOps">
                             <div class="skill-name">LLMs & MLOps</div>
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 75%;"></div></div>
                          </div>
@@ -1233,7 +1341,7 @@
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 75%;"></div></div>
                         </div>
                          <div class="skill-item" title="Metodologias Ágeis (Scrum, Kanban)">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" class="skill-icon" alt="Agile">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jira/jira-original.svg" class="skill-icon" alt="Agile">
                             <div class="skill-name">Metodologias Ágeis</div>
                             <div class="skill-bar-container"><div class="skill-bar" style="width: 85%;"></div></div>
                         </div>
@@ -1270,10 +1378,10 @@
             
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/jeffthedeveloper/" target="_blank" title="LinkedIn">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
                 </a>
                 <a href="https://github.com/jeffthedeveloper" target="_blank" title="GitHub">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub">
                 </a>
                 <a href="https://wa.me/5583996258911?text=Ol%C3%A1%2C%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" title="WhatsApp">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
