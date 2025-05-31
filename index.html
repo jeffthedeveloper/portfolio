@@ -387,110 +387,90 @@
 
         /* Seção de Skills */
         .skills-section {
-            text-align: center;
-            margin: 40px 0;
-        }
-
+        text-align: center;
+        margin: 40px 0;
+    }
+        
         .skills-category {
             margin-bottom: 30px;
         }
-
+        
         .skills-category h4 {
             color: var(--secondary);
             margin-bottom: 15px;
             font-family: 'Press Start 2P', cursive;
             font-size: 0.9rem;
         }
-        
+            
         .skills-grid {
-        
             display: grid;
-        
             grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Garante que cada item tenha espaço */
-        
             gap: 15px; /* Espaço entre os itens da grid */
-        
             justify-items: center; /* Centraliza os itens dentro de suas células na grid */
-        
         }
-
+        
         .skill-item {
-        
             display: flex;
-        
             flex-direction: column; /* Coloca o ícone, nome e barra em coluna */
-        
             align-items: center; /* Centraliza horizontalmente */
-        
             text-align: center; /* Centraliza o texto */
-        
             margin-bottom: 15px; /* Espaço entre os itens */
-        
             width: 100%; /* Garante que o item ocupe a largura disponível na grid */
-        
         }
-
-           .skill-icon {
-    
-        height: 40px; /* Defina a altura desejada */
-    
-        width: 40px;  /* Defina a largura desejada (igual à altura para formato quadrado) */
-    
-        margin: 0 auto 5px; /* Centraliza o ícone e adiciona margem inferior */
-    
-        object-fit: contain; /* Garante que a imagem caiba dentro das dimensões sem distorção */
-    
-        display: block; /* Garante que o ícone ocupe seu próprio espaço */
-    
-        transition: transform 0.2s ease; /* Mantém a animação de hover existente */ 
-           }
-  
+        
+        .skill-icon {
+            height: 40px; /* Defina a altura desejada */
+            width: 40px;  /* Defina a largura desejada (igual à altura para formato quadrado) */
+            margin: 0 auto 5px; /* Centraliza o ícone e adiciona margem inferior */
+            object-fit: contain; /* Garante que a imagem caiba dentro das dimensões sem distorção */
+            display: block; /* Garante que o ícone ocupe seu próprio espaço */
+            transition: transform 0.2s ease; /* Mantém a animação de hover existente */ 
+        }
+          
         .skill-icon:hover {
-    
-        transform: scale(1.15); /* Efeito de zoom no hover */
-     }
-
+            transform: scale(1.15); /* Efeito de zoom no hover */
+        }
+        
         .skill-name {
             font-size: 0.7rem;
             color: var(--dark);
         }
-
+        
         .skill-bar-container {
-    height: 10px;
-    background-color: var(--gray);
-    border-radius: 5px;
-    margin-top: 5px;
-    overflow: hidden;
-    border: 1px solid var(--dark);
-}
-
-.skill-bar {
-    height: 100%;
-    background: repeating-linear-gradient(
-        45deg,
-        var(--primary),
-        var(--primary) 10px,
-        var(--secondary) 10px,
-        var(--secondary) 20px
-    );
-    background-size: 40px 100%; /* Ajuste o tamanho para que o padrão de 20px se repita */
-    border-radius: 5px;
-    transition: width 1s ease-in-out; /* Mantém a transição para o preenchimento inicial */
-    animation: progress-animation 1s linear infinite, pulse 2s infinite alternate; /* Aplica as duas animações */
-}
-
-
-    /* Animação das barras de skill */
-    @keyframes pulse {
-        0% { transform: scaleX(1); }
-        50% { transform: scaleX(1.01); opacity: 0.95; }
-        100% { transform: scaleX(1); opacity: 1; }
-    }
-    
-    @keyframes progress-animation {
-        0% { background-position: 0% 0%; }
-        100% { background-position: 200% 0%; } /* Ajuste o valor para a largura total do padrão */
-    }
+            height: 10px;
+            background-color: var(--gray);
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+            border: 1px solid var(--dark);
+        }
+        
+        .skill-bar {
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--primary),
+                var(--primary) 10px,
+                var(--secondary) 10px,
+                var(--secondary) 20px
+            );
+            background-size: 40px 100%; /* Ajuste o tamanho para que o padrão de 20px se repita */
+            border-radius: 5px;
+            transition: width 1s ease-in-out; /* Mantém a transição para o preenchimento inicial */
+            animation: progress-animation 1s linear infinite, pulse 2s infinite alternate; /* Aplica as duas animações */
+        }
+        
+        /* Animação das barras de skill */
+        @keyframes pulse {
+            0% { transform: scaleX(1); }
+            50% { transform: scaleX(1.01); opacity: 0.95; }
+            100% { transform: scaleX(1); opacity: 1; }
+        }
+            
+        @keyframes progress-animation {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; } /* Ajuste o valor para a largura total do padrão */
+        }
 
         /* Conexões Sociais */
         .social-links {
@@ -869,7 +849,9 @@
         </section>
 
         <hr>
-
+        
+<!-- Habilidades Técnicas -->
+        
 <section id="skills">
     <div class="skills-section">
         <h2>🚀 Habilidades Técnicas</h2>
