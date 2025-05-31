@@ -1100,39 +1100,26 @@
 
         <!-- Contato -->
         <section id="contato">
-            <h2>📬 Contato</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input type="text" id="name" class="form-control" placeholder="Seu nome">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Assunto</label>
-                    <input type="text" id="subject" class="form-control" placeholder="Assunto da mensagem">
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensagem</label>
-                    <textarea id="message" class="form-control" rows="5" placeholder="Sua mensagem aqui..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">ENVIAR</button>
-            </form>
-
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/professorjefferson" target="_blank" title="LinkedIn">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/jeffthedeveloper" target="_blank" title="GitHub">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub">
-                </a>
-                <a href="mailto:professorjefferson.site@gmail.com" title="Email">
-                    <img src="https://www.svgrepo.com/show/373951/outlook.svg" alt="Email">
-                </a>
-            </div>
-        </section>
+    <h2>📬 Contato</h2>
+    <form class="contact-form" id="contactForm">
+        <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" class="form-control" placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com">
+        </div>
+        <div class="form-group">
+            <label for="subject">Assunto</label>
+            <input type="text" id="subject" class="form-control" placeholder="Assunto da mensagem">
+        </div>
+        <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" class="form-control" rows="5" placeholder="Sua mensagem aqui..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">ENVIAR</button>
+    </form>
 
         <!-- Footer -->
         <footer class="footer">
@@ -1178,6 +1165,32 @@
             // Animar barras visíveis no carregamento e no scroll
             animateVisibleBars();
             window.addEventListener('scroll', animateVisibleBars);
+        });
+
+                document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            const primaryEmail = 'jeffersonfir@gmail.com';
+            const ccEmails = 'professorjefferson.site@gmail.com,jefferson.mendes@ccc.ufcg.edu.br';
+
+            // Codifica os valores para URL para evitar problemas com caracteres especiais
+            const encodedSubject = encodeURIComponent(subject);
+            const encodedBody = encodeURIComponent(
+                `Nome: ${name}\n` +
+                `Email: ${email}\n\n` +
+                `${message}`
+            );
+
+            // Constrói o link mailto
+            const mailtoLink = `mailto:${primaryEmail}?cc=${ccEmails}&subject=${encodedSubject}&body=${encodedBody}`;
+
+            // Abre o cliente de e-mail
+            window.location.href = mailtoLink;
         });
     </script>
 </body>
