@@ -384,19 +384,27 @@
         .icon-square:hover img {
             filter: grayscale(0%);
         }
-
+        
+        :root {
+    /* Definições de cores de exemplo - ajuste conforme o tema do seu site */
+    --primary: #4CAF50; /* Um verde vibrante, por exemplo */
+    --secondary: #FFC107; /* Um amarelo/laranja, por exemplo */
+    --gray: #e0e0e0; /* Um cinza claro */
+    --dark: #333; /* Um cinza escuro para texto e bordas */
+}
+        
         /* Seção de Skills */
         .skills-section {
-        text-align: center;
-        margin: 40px 0;
-    }
+            text-align: center;
+            margin: 40px 0;
+        }
         
         .skills-category {
             margin-bottom: 30px;
         }
         
         .skills-category h4 {
-            color: var(--secondary);
+            color: var(--dark); /* Alterado para var(--dark) para melhor contraste, ou use --secondary */
             margin-bottom: 15px;
             font-family: 'Press Start 2P', cursive;
             font-size: 0.9rem;
@@ -404,31 +412,31 @@
             
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Garante que cada item tenha espaço */
-            gap: 15px; /* Espaço entre os itens da grid */
-            justify-items: center; /* Centraliza os itens dentro de suas células na grid */
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px;
+            justify-items: center;
         }
         
         .skill-item {
             display: flex;
-            flex-direction: column; /* Coloca o ícone, nome e barra em coluna */
-            align-items: center; /* Centraliza horizontalmente */
-            text-align: center; /* Centraliza o texto */
-            margin-bottom: 15px; /* Espaço entre os itens */
-            width: 100%; /* Garante que o item ocupe a largura disponível na grid */
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 15px;
+            width: 100%;
         }
         
         .skill-icon {
-            height: 40px; /* Defina a altura desejada */
-            width: 40px;  /* Defina a largura desejada (igual à altura para formato quadrado) */
-            margin: 0 auto 5px; /* Centraliza o ícone e adiciona margem inferior */
-            object-fit: contain; /* Garante que a imagem caiba dentro das dimensões sem distorção */
-            display: block; /* Garante que o ícone ocupe seu próprio espaço */
-            transition: transform 0.2s ease; /* Mantém a animação de hover existente */ 
+            height: 40px;
+            width: 40px;
+            margin: 0 auto 5px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.2s ease;
         }
           
         .skill-icon:hover {
-            transform: scale(1.15); /* Efeito de zoom no hover */
+            transform: scale(1.15);
         }
         
         .skill-name {
@@ -442,7 +450,8 @@
             border-radius: 5px;
             margin-top: 5px;
             overflow: hidden;
-            border: 1px solid var(--dark);
+            border: 1px solid var(--dark); /* Borda para visibilidade clara */
+            width: 100%; /* Garante que o container da barra ocupe o espaço total do item */
         }
         
         .skill-bar {
@@ -454,10 +463,10 @@
                 var(--secondary) 10px,
                 var(--secondary) 20px
             );
-            background-size: 40px 100%; /* Ajuste o tamanho para que o padrão de 20px se repita */
+            background-size: 40px 100%;
             border-radius: 5px;
-            transition: width 1s ease-in-out; /* Mantém a transição para o preenchimento inicial */
-            animation: progress-animation 1s linear infinite, pulse 2s infinite alternate; /* Aplica as duas animações */
+            transition: width 1s ease-in-out;
+            animation: progress-animation 1s linear infinite, pulse 2s infinite alternate;
         }
         
         /* Animação das barras de skill */
@@ -469,9 +478,8 @@
             
         @keyframes progress-animation {
             0% { background-position: 0% 0%; }
-            100% { background-position: 200% 0%; } /* Ajuste o valor para a largura total do padrão */
+            100% { background-position: 200% 0%; }
         }
-
         /* Conexões Sociais */
         .social-links {
             text-align: center;
@@ -881,27 +889,20 @@
                     </div>
                 </div>
                 <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" class="skill-icon" title="MySQL">
-                    <div class="skill-name">MySQL</div>
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" class="skill-icon" title="Java">
+                    <div class="skill-name">Java</div>
                     <div class="skill-bar-container">
                         <div class="skill-bar" style="width: 85%;"></div>
                     </div>
                 </div>
                 <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" class="skill-icon" title="PostgreSQL">
-                    <div class="skill-name">PostgreSQL</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" class="skill-icon" title="C Language">
+                    <div class="skill-name">C</div>
                     <div class="skill-bar-container">
                         <div class="skill-bar" style="width: 85%;"></div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" class="skill-icon" title="Docker">
-                    <div class="skill-name">Docker</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
+                 <div class="skill-item">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" class="skill-icon" title="Git">
                     <div class="skill-name">Git</div>
                     <div class="skill-bar-container">
@@ -909,17 +910,10 @@
                     </div>
                 </div>
                 <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" class="skill-icon" title="HTML5">
-                    <div class="skill-name">HTML5</div>
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" class="skill-icon" title="Docker">
+                    <div class="skill-name">Docker</div>
                     <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 90%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" class="skill-icon" title="CSS3">
-                    <div class="skill-name">CSS3</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 90%;"></div>
+                        <div class="skill-bar" style="width: 85%;"></div>
                     </div>
                 </div>
             </div>
@@ -942,14 +936,7 @@
                         <div class="skill-bar" style="width: 75%;"></div>
                     </div>
                 </div>
-                 <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/huggingface/huggingface-original.svg" class="skill-icon" title="Hugging Face">
-                    <div class="skill-name">Hugging Face</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 70%;"></div>
-                    </div>
-                </div>
-                 <div class="skill-item">
+                <div class="skill-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" class="skill-icon" title="Scikit-learn">
                     <div class="skill-name">Scikit-learn</div>
                     <div class="skill-bar-container">
@@ -978,17 +965,24 @@
                     </div>
                 </div>
                 <div class="skill-item">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" class="skill-icon" title="Java">
-                    <div class="skill-name">Java</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-                 <div class="skill-item">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original-wordmark.svg" class="skill-icon" title="Spring Boot">
                     <div class="skill-name">Spring Boot</div>
                     <div class="skill-bar-container">
                         <div class="skill-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" class="skill-icon" title="MySQL">
+                    <div class="skill-name">MySQL</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" class="skill-icon" title="PostgreSQL">
+                    <div class="skill-name">PostgreSQL</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width: 85%;"></div>
                     </div>
                 </div>
                 <div class="skill-item">
@@ -1005,14 +999,14 @@
                         <div class="skill-bar" style="width: 70%;"></div>
                     </div>
                 </div>
-                 <div class="skill-item">
+                <div class="skill-item">
                     <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" class="skill-icon" title="Google Cloud">
                     <div class="skill-name">Google Cloud</div>
                     <div class="skill-bar-container">
                         <div class="skill-bar" style="width: 70%;"></div>
                     </div>
                 </div>
-                 <div class="skill-item">
+                <div class="skill-item">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" class="skill-icon" title="Firebase">
                     <div class="skill-name">Firebase</div>
                     <div class="skill-bar-container">
@@ -1046,18 +1040,11 @@
                         <div class="skill-bar" style="width: 60%;"></div>
                     </div>
                 </div>
-                 <div class="skill-item">
+                <div class="skill-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" class="skill-icon" title="Selenium">
                     <div class="skill-name">Selenium</div>
                     <div class="skill-bar-container">
                         <div class="skill-bar" style="width: 60%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powerbi/powerbi-original.svg" class="skill-icon" title="Power BI">
-                    <div class="skill-name">Power BI</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 65%;"></div>
                     </div>
                 </div>
                 <div class="skill-item">
@@ -1148,20 +1135,6 @@
                     <div class="skill-name">Android Native</div>
                     <div class="skill-bar-container">
                         <div class="skill-bar" style="width: 40%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scrum/scrum-original.svg" class="skill-icon" title="Scrum/Agile">
-                    <div class="skill-name">Scrum/Agile</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 70%;"></div>
-                    </div>
-                </div>
-                 <div class="skill-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg" class="skill-icon" title="WordPress">
-                    <div class="skill-name">WordPress</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 60%;"></div>
                     </div>
                 </div>
             </div>
