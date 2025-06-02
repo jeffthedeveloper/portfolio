@@ -11,7 +11,7 @@
   --light-color: #f0f4f8;
   /* Cinza mais claro/off-white */
   --gray-color: #cccccc;
-  /* Cinza para bordas */
+  /* Cinza para bordas/background de elementos neutros */
   --card-bg-color: #ffffff;
   /* Fundo do card */
   --text-color: #333333;
@@ -26,6 +26,7 @@
   --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Reset básico para todos os elementos */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -35,6 +36,7 @@
 body {
   font-family: var(--font-sans);
   font-size: 14px;
+  /* Base para rem/em */
   background-color: var(--light-color);
   color: var(--text-color);
   line-height: 1.7;
@@ -43,6 +45,8 @@ body {
 /* ==========================================================================
    2. Tipografia e Estilos Gerais de Conteúdo
    ========================================================================== */
+
+/* Headings gerais */
 h1,
 h2,
 h3,
@@ -52,84 +56,92 @@ h6 {
   font-family: var(--font-pixel);
   color: var(--primary-color);
   margin-top: 0;
-  /* Reset margin-top para headings */
   margin-bottom: 0.75em;
   /* Margem inferior padrão para headings */
+  text-align: center;
+  /* Centraliza todos os headings por padrão */
 }
 
+/* Títulos de Seção e Principal */
 .main-title {
-  /* Estilo para H1 principal */
   font-size: 2rem;
+  /* H1 principal */
   margin-bottom: 20px;
   text-shadow: 1px 1px 0px var(--gray-color);
-  text-align: center;
 }
 
 .section-title {
-  /* Estilo para H2 de seção */
   font-size: 1.6rem;
+  /* H2 de seção */
   margin-top: 40px;
   margin-bottom: 30px;
   text-shadow: 2px 2px 0px var(--gray-color);
-  text-align: center;
 }
 
+/* Subtítulos variados */
 .subtitle {
-  /* Estilo para H3 no perfil */
   font-family: var(--font-sans);
+  /* H3 no perfil */
   font-size: 1.2rem;
-  text-align: center;
   color: var(--text-color);
   font-weight: 500;
   margin-bottom: 20px;
 }
 
+.section-subtitle {
+  /* Subtítulo genérico para seções */
+  text-align: center;
+  /* Mantido para subtítulos de seção */
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  font-family: var(--font-sans);
+}
+
 .category-title {
-  /* Estilo para H3 nas categorias de skills */
+  /* H3 nas categorias de skills */
   font-size: 1.3rem;
   color: var(--primary-color);
   margin-bottom: 25px;
   text-align: left;
+  /* Mantido alinhamento específico */
 }
 
+/* Títulos dentro de Cards (Projetos, Timeline, Certificações) */
 .project-card h5,
 .timeline-content-h h4,
-/* H4 usado na timeline */
 .certification-card h5 {
   font-family: var(--font-pixel);
-  /* Garantir fonte pixel para estes títulos de card */
   color: var(--primary-color);
   margin-bottom: 10px;
   font-size: 1.1em;
+  /* Relativo ao font-size do pai */
   font-weight: normal;
-  /* Resetar bold se a tag já for (h4, h5) */
+  /* Para garantir consistência */
   text-align: center;
 }
 
+/* Estilos de Parágrafos e Listas */
 p,
 li {
   font-size: 1em;
   /* Relativo ao font-size do body (14px) */
   color: var(--text-color);
   margin-bottom: 10px;
-  /* Espaçamento padrão para parágrafos e itens de lista */
+  /* Espaçamento padrão */
 }
 
 .sobre-mim-paragrapgh {
   /* Parágrafo específico da seção sobre mim */
   font-size: 1rem;
-  /* 14px */
   text-align: justify;
   line-height: 1.6;
-  /* Já definido no body, mas pode ser específico aqui */
 }
 
 /* Descrições e textos menores em cards */
 .project-description,
 .timeline-content-h p,
-/* Parágrafos dentro da timeline */
 .certification-card p {
-  /* Parágrafos dentro de cards de certificação */
   font-size: 0.9rem;
   /* ~12.6px */
   line-height: 1.5;
@@ -140,11 +152,13 @@ li {
   font-weight: 500;
   margin: 10px 0;
   min-height: 2.5em;
+  /* Garante altura mínima para alinhamento */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Links */
 a {
   color: var(--link-color);
   text-decoration: none;
@@ -168,27 +182,19 @@ hr {
    ========================================================================== */
 .container {
   max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  /* Centraliza horizontalmente */
   padding: 20px;
-  background-color: #ffffff;
+  /* Padding interno do container geral */
+  background-color: var(--card-bg-color);
+  /* Usar variável */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 section {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.section-subtitle {
-  /* Subtítulo genérico para seções */
-  text-align: center;
-  font-size: 1rem;
-  color: var(--text-color);
-  margin-bottom: 25px;
-  font-family: var(--font-sans);
-  /* Para subtítulos descritivos */
+  padding: 30px 0;
+  /* Unificado padding-top e padding-bottom */
 }
 
 .certifications-footer {
@@ -223,7 +229,8 @@ section {
 }
 
 .nav-logo {
-  color: #ffffff;
+  color: var(--button-text-color);
+  /* Usar var para branco */
   font-family: var(--font-pixel);
   font-size: 1.1rem;
   text-decoration: none;
@@ -251,7 +258,7 @@ section {
 }
 
 .nav-links a {
-  color: #ffffff;
+  color: var(--button-text-color);
   padding: 8px 12px;
   border-radius: 5px;
   font-size: 0.85rem;
@@ -266,14 +273,8 @@ section {
   text-decoration: none;
 }
 
-/* Itens de navegação específicos para mobile/desktop (visibilidade controlada por media queries) */
-.nav-item-blog-mobile-only,
-.nav-item-contato-mobile-only {
-  display: none;
-}
-
+/* Dropdown de Navegação (Desktop) */
 .nav-item-dropdown-desktop {
-  /* Controla o "Mais" no desktop */
   position: relative;
   display: block;
   /* Visível por padrão, escondido no mobile via MQ */
@@ -325,7 +326,6 @@ section {
   padding: 10px 15px;
   display: block;
   font-size: 0.85rem;
-  /* Consistente com outros links da nav */
 }
 
 .dropdown-menu-desktop li a:hover {
@@ -401,6 +401,7 @@ section {
   text-decoration: none;
   transition: all 0.2s ease;
   box-shadow: 0 2px 0 #2a4aaa;
+  /* Sombra para "pixel-like" click */
 }
 
 .btn-hire:hover {
@@ -408,7 +409,9 @@ section {
   box-shadow: 0 3px 0 #2a4aaa;
   background-color: var(--primary-color);
   color: var(--button-text-color);
+  /* Garante que a cor não mude */
   text-decoration: none;
+  /* Garante que não sublinhe */
 }
 
 .btn-hire:active {
@@ -416,16 +419,18 @@ section {
   box-shadow: 0 1px 0 #2a4aaa;
 }
 
+/* Visibilidade de elementos de navegação por dispositivo */
+.nav-item-blog-mobile-only,
+.nav-item-contato-mobile-only,
+.nav-hire-mobile-item {
+  display: none;
+  /* Escondidos por padrão, mostrados via MQ */
+}
+
 .btn-hire-desktop {
   display: inline-block;
   /* Visível por padrão, escondido no mobile via MQ */
   margin-left: 20px;
-}
-
-.nav-hire-mobile-item {
-  /* Item de lista para o botão contratar no menu mobile */
-  display: none;
-  /* Visível apenas no menu mobile ativo via MQ */
 }
 
 /* ==========================================================================
@@ -468,9 +473,8 @@ section {
   max-width: 700px;
 }
 
-/* Lista "Sobre Mim" (usada antes da refatoração para game-menu) */
+/* Lista "Sobre Mim" (considerada legado pela refatoração para game-menu) */
 .sobre-mim-lista {
-  /* Mantido caso seja usado em outro lugar, mas game-menu substitui na seção "Sobre" */
   list-style: none;
   padding-left: 0;
   text-align: left;
@@ -482,12 +486,10 @@ section {
   display: flex;
   align-items: flex-start;
   font-size: 1rem;
-  /* 14px */
   margin-bottom: 15px;
 }
 
 .sobre-mim-lista img.svg-icon {
-  /* Ícone original da lista "Sobre Mim" */
   width: 22px;
   height: 22px;
   margin-right: 12px;
@@ -502,31 +504,50 @@ section {
 .icon-grid {
   display: grid;
   gap: 25px;
+  /* Gap padrão para desktop/maior mobile */
+  justify-content: center;
+  /* Centraliza os itens do grid se houver espaço extra */
+  align-items: start;
+  /* Impede que os cards se estiquem verticalmente */
+
+  /* Adicionando padding lateral para evitar que o conteúdo encoste nas bordas da tela.
+     Isso será aplicado a todos os grids, mas pode ser sobrescrito em cada um. */
+  padding: 0 15px;
+  /* Padding horizontal de 15px, mantém o respiro geral */
+}
+
+/* Cards Base (mantido como está, pois já está consolidado) */
+.project-card,
+.certification-card,
+.skill-item,
+.timeline-content-h {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover,
+.certification-card:hover,
+.timeline-content-h:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--secondary-color);
 }
 
 /* Projetos */
 .projects-grid {
   grid-template-columns: repeat(1, 1fr);
+  /* Mobile: 1 coluna por padrão */
 }
 
-/* Mobile: 1 coluna por padrão */
 .project-card {
-  background-color: var(--card-bg-color);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid var(--gray-color);
-  display: flex;
-  flex-direction: column;
-  text-align: center;
   min-height: 280px;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--secondary-color);
 }
 
 .project-card img.project-icon {
@@ -549,7 +570,6 @@ section {
   border-radius: 5px;
   font-size: 0.85em;
   font-weight: bold;
-  /* Strong já faz isso, mas pode ser explícito */
   font-family: var(--font-pixel);
   margin-top: auto;
 }
@@ -562,41 +582,48 @@ section {
 
 /* Certificações */
 .certifications-grid {
-  grid-template-columns: repeat(1, 1fr);
+  /*
+     ** MUDANÇAS CHAVE PARA CENTRALIZAR E LIMITAR O LAYOUT DE CERTIFICAÇÕES: **
+     - max-width: Define uma largura máxima para o grid, controlando o quão largo ele fica.
+                  Para 2 colunas de 250px com 25px de gap, seria 2*250 + 1*25 = 525px.
+                  Deixando 600px dá um bom respiro.
+     - margin: 0 auto; Centraliza o grid de certificações.
+     - grid-template-columns: Usando auto-fit com minmax para flexibilidade.
+                              Em telas pequenas, permitirá 1 coluna.
+  */
+  max-width: 600px;
+  /* Limita a largura do grid de certificações */
+  margin: 0 auto;
+  /* Centraliza o grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  /* Mantém o gap entre os cards */
+  /* padding: 0 15px; herdado da regra geral de grids */
 }
 
-/* Mobile: 1 coluna por padrão */
 .certification-card {
-  background-color: var(--card-bg-color);
+  overflow: hidden;
+  aspect-ratio: 1 / 1.2;
+  max-width: 300px;
+  /* Mantém o max-width para cada card, mas o 1fr do grid ajustará se necessário */
+  width: 100%;
+  /* Permite que o card se estique dentro do 1fr da coluna */
+  min-height: unset;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: center;
-  border: 1px solid var(--gray-color);
-  display: flex;
-  flex-direction: column;
-  min-height: 260px;
-}
-
-.certification-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--primary-color);
+  /* Mantido em 10px como estava originalmente */
 }
 
 .certification-card img.cert-icon {
   width: 60px;
   height: auto;
-  max-height: 60px;
+  max-width: 100%;
   margin: 0 auto 15px auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .certification-card .cert-issuer {
   font-size: 0.85em;
   color: #555;
-  /* Cor específica para o emissor */
   margin-bottom: 10px;
 }
 
@@ -606,20 +633,28 @@ section {
   flex-grow: 1;
 }
 
-/* Ícones de Ferramentas */
+/* Ferramentas e Tecnologias */
 .icon-grid-subtitle {
   text-align: center;
 }
 
-/* Subtítulo para a grid de ícones */
 .icon-grid {
-  grid-template-columns: repeat(3, 1fr);
+  max-width: 600px;
+  /* Ajustado para melhor visualização com 4 colunas de 100px + gaps */
+  margin: 0 auto;
+  /* Centraliza o grid de ícones */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  /* Espaçamento entre os ícones. Ajuste se preferir mais ou menos. */
+  padding: 0 10px;
+  /* Padding interno para as bordas do grid de ícones */
 }
 
-/* Mobile: 3 colunas por padrão */
 .icon-square {
   aspect-ratio: 1 / 1;
-  height: auto;
+  height: 100px;
+  width: 100px;
+  /* Mantém a largura fixa de cada item, mesmo com 1fr do grid. */
   background-color: var(--card-bg-color);
   border-radius: 10px;
   display: flex;
@@ -650,24 +685,20 @@ section {
 
 /* Skills */
 .skills-grid {
-  grid-template-columns: repeat(1, 1fr);
+  max-width: 850px;
+  /* Ajuste para o seu gosto, baseado na largura dos cards. */
+  margin: 0 auto;
+  /* Centraliza o grid de habilidades */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Min-width de 250px para cards de skill */
+  /* padding: 0 15px; herdado da regra geral de grids */
 }
 
-/* Mobile: 1 coluna por padrão */
 .skills-category {
   margin-bottom: 40px;
 }
 
 .skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  background-color: var(--card-bg-color);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--gray-color);
   min-height: 180px;
 }
 
@@ -680,7 +711,6 @@ section {
 }
 
 img.skill-icon.placeholder {
-  /* Estilo para placeholder de ícone de skill */
   background-color: var(--gray-color);
   padding: 5px;
   border-radius: 4px;
@@ -695,7 +725,6 @@ img.skill-icon.placeholder {
   background-color: var(--gray-color);
   border-radius: 7px;
   margin-top: auto;
-  /* Empurra para baixo */
   overflow: hidden;
   border: 1px solid var(--dark-color);
   width: 100%;
@@ -712,8 +741,6 @@ img.skill-icon.placeholder {
 }
 
 @keyframes progress-animation {
-
-  /* Chave de animação para a barra de skill */
   0% {
     background-position: 0 0;
   }
@@ -744,18 +771,17 @@ img.skill-icon.placeholder {
   height: 4px;
   background-color: var(--primary-color);
   top: 28px;
-  /* Ajustado para centralizar com os pontos */
   left: 20px;
   right: 20px;
   z-index: 1;
 }
 
 .timeline-item-h {
-  flex: 0 0 280px;
+  flex: 0 0 150px;
+  /* Largura fixa para cada item da timeline */
   margin: 0 15px;
   position: relative;
   padding-top: 20px;
-  /* Espaço para o "braço" do ponto */
 }
 
 .timeline-dot {
@@ -766,7 +792,6 @@ img.skill-icon.placeholder {
   border-radius: 50%;
   position: absolute;
   top: -12px;
-  /* Metade da altura do ponto, para alinhar na linha */
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -778,48 +803,28 @@ img.skill-icon.placeholder {
 }
 
 .timeline-content-h {
-  background-color: var(--card-bg-color);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  text-align: center;
-  border: 1px solid var(--gray-color);
-  white-space: normal;
-  /* Permite quebra de texto dentro do card */
   min-height: 180px;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: normal;
 }
 
-.timeline-content-h:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-
-/* .timeline-content-h h4 já estilizado acima */
 .timeline-content-h .date {
   font-size: 0.85em;
   color: #555;
   margin-bottom: 10px;
   display: block;
-  /* Garante quebra de linha */
 }
 
-/* .timeline-content-h p já estilizado acima */
 .timeline-content-h p.institution {
   /* Parágrafo específico para instituição na timeline */
   font-weight: bold;
   color: var(--text-color);
-  /* Usa a cor de texto padrão */
 }
 
 /* Formulário de Contato */
 .contact-form-container {
   max-width: 650px;
   margin: 0 auto 40px auto;
-  /* Adicionado margin-bottom */
   padding: 25px;
   background-color: var(--card-bg-color);
   border-radius: 10px;
@@ -838,7 +843,6 @@ img.skill-icon.placeholder {
   color: var(--primary-color);
   font-size: 0.95rem;
   font-family: var(--font-sans);
-  /* Labels com fonte sans-serif */
 }
 
 .form-control {
@@ -847,7 +851,6 @@ img.skill-icon.placeholder {
   border: 1px solid var(--gray-color);
   border-radius: 5px;
   background-color: var(--light-color);
-  /* Fundo levemente diferente para campos */
   font-family: var(--font-sans);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   font-size: 1rem;
@@ -861,8 +864,7 @@ img.skill-icon.placeholder {
 .form-control:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.15);
-  /* Usar var com rgba */
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
 }
 
 .btn-submit {
@@ -876,7 +878,6 @@ img.skill-icon.placeholder {
   font-size: 0.9rem;
   transition: all 0.2s ease;
   box-shadow: 0 2px 0 #000050;
-  /* Sombra escura para profundidade */
   display: block;
   margin: 10px auto 0;
 }
@@ -942,10 +943,9 @@ img.skill-icon.placeholder {
   vertical-align: middle;
 }
 
-
 /* ==========================================================================
    6. Estilos Modulares para Seção "Minha Jornada" - Estilo Menu de Jogo
-      (Substitui a antiga .sobre-mim-lista nesta seção específica)
+     (Substitui a antiga .sobre-mim-lista nesta seção específica)
    ========================================================================== */
 .game-menu-outer-container {
   background-color: #3E3E3E;
@@ -954,8 +954,6 @@ img.skill-icon.placeholder {
   border: 3px solid #1E1E1E;
   box-shadow: inset 0 0 0 3px #5E5E5E, 0px 0px 10px rgba(0, 0, 0, 0.5);
   margin-top: 30px;
-  /* Aumentado para separar da descrição da seção */
-  /* font-family: var(--font-pixel); Removido para usar o estilo mais original abaixo */
 }
 
 .game-menu-table {
@@ -992,13 +990,9 @@ img.skill-icon.placeholder {
   /* Ajustar esta largura baseada no maior texto de label */
   display: flex;
   align-items: flex-start;
-  /* Ícone e texto alinhados no topo */
   color: var(--text-color);
-  /* Cor padrão do texto para o label */
   font-family: var(--font-sans);
-  /* Fonte padrão para o label */
   font-size: 1rem;
-  /* Tamanho da fonte original da lista */
 }
 
 .game-menu-svg-icon {
@@ -1007,27 +1001,20 @@ img.skill-icon.placeholder {
   height: 22px;
   flex-shrink: 0;
   margin-right: 12px;
-  /* Espaçamento original */
   margin-top: 2px;
-  /* Alinhamento com primeira linha do texto */
-  /* Filtro removido para usar cor original do SVG */
 }
 
 .game-menu-icon-column strong {
   /* Label (ex: "Atualmente imerso em:") */
   font-weight: bold;
-  /* Já é strong, mas explícito */
   color: inherit;
-  /* Herda cor do pai .game-menu-icon-column */
   line-height: 1.6;
-  /* Consistente com .sobre-mim-paragrapgh */
 }
 
 .game-menu-content-column {
   /* Coluna da Direita: Conteúdo principal */
   flex-grow: 1;
   padding-left: 15px;
-  /* Espaçamento da coluna de label */
   color: #E0E0E0;
   /* Texto claro para contraste com fundo escuro do item */
   font-family: var(--font-sans);
@@ -1039,7 +1026,6 @@ img.skill-icon.placeholder {
   text-align: justify;
   margin-bottom: 0;
   color: inherit;
-  /* Herda cor do pai .game-menu-content-column */
 }
 
 .game-menu-link {
@@ -1053,7 +1039,6 @@ img.skill-icon.placeholder {
 .game-menu-link:hover {
   color: #FFFFFF;
 }
-
 
 /* ==========================================================================
    7. Media Queries para Responsividade
@@ -1091,16 +1076,20 @@ img.skill-icon.placeholder {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Certificações: 2 colunas para tablets e desktops menores */
   .certifications-grid {
     grid-template-columns: repeat(2, 1fr);
+    /* FORÇAR 2 COLUNAS */
+    max-width: 550px;
+    /* Ajuste para centralizar 2 cards de 250px + gap */
+    margin: 0 auto;
+    /* Centraliza o grid */
+    padding: 0 10px;
+    /* Reduz o padding lateral para 2 colunas */
   }
 
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .icon-grid {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1118,16 +1107,20 @@ img.skill-icon.placeholder {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  /* Certificações: 3 colunas para desktops maiores */
   .certifications-grid {
     grid-template-columns: repeat(3, 1fr);
+    /* Forçar 3 colunas */
+    max-width: 800px;
+    /* Ajuste para centralizar 3 cards de 250px + gaps */
+    margin: 0 auto;
+    /* Centraliza o grid */
+    padding: 0 15px;
+    /* Retorna o padding lateral */
   }
 
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .icon-grid {
-    grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -1202,14 +1195,11 @@ img.skill-icon.placeholder {
     /* Estilo específico para o botão contratar no menu mobile */
     display: inline-block;
     font-size: 1rem;
-    /* Pode ser maior no menu mobile */
     padding: 12px 30px;
-    /* Padding específico */
   }
 
   .nav-links li.nav-hire-mobile-item a.btn-hire-mobile {
     border-bottom: none;
-    /* Sem borda de link para o botão */
   }
 
   /* Responsividade para Game Menu em telas menores */
@@ -1247,13 +1237,14 @@ img.skill-icon.placeholder {
     padding-bottom: 8px;
     border-bottom: 1px solid #5E5E5E;
     /* Linha separadora mais sutil */
+    margin-top: 0;
+    /* Reset margin-top se o alinhamento mudar */
   }
 
   .game-menu-svg-icon {
     margin-top: 0;
   }
 
-  /* Reset margin-top se o alinhamento mudar */
   .game-menu-content-column {
     padding-left: 0;
     /* Remove padding quando empilhado */
@@ -1265,7 +1256,6 @@ img.skill-icon.placeholder {
     text-align: left;
   }
 }
-
 
 /* Ajustes finos para telas muito pequenas (até 480px) */
 @media screen and (max-width: 480px) {
@@ -1309,9 +1299,28 @@ img.skill-icon.placeholder {
     min-height: 160px;
   }
 
+  /* Certificações: 1 coluna para telas muito pequenas */
+  .certifications-grid {
+    grid-template-columns: repeat(1, 1fr);
+    /* Forçar 1 coluna em telas muito pequenas */
+    max-width: 300px;
+    /* Ajuste para centralizar 1 card de 250px + padding */
+    margin: 0 auto;
+    /* Centraliza o grid */
+    padding: 0 10px;
+    /* Padding lateral */
+  }
+
   .icon-grid {
-    grid-template-columns: repeat(2, 1fr);
+    max-width: 300px;
+    /* Reduzindo o max-width para telas muito pequenas */
     gap: 15px;
+    /* Reduzindo o gap */
+  }
+
+  .skills-grid {
+    max-width: 300px;
+    /* Força 1 coluna em telas muito pequenas e centraliza */
   }
 
   .social-links img {
@@ -1329,10 +1338,8 @@ img.skill-icon.placeholder {
     padding: 8px 15px;
   }
 
-  /* Corrigido: adicionado 'rem' */
   .nav-links li a {
     font-size: 0.9rem;
-    /* Links do menu mobile um pouco menores */
   }
 }
 
@@ -1341,29 +1348,21 @@ img.skill-icon.placeholder {
    ========================================================================== */
 .skill-tooltip {
   position: absolute;
-  /* Necessário para posicionamento dinâmico */
-  background-color: var(--dark-color, #222);
-  /* Cor escura do seu tema */
-  color: var(--light-color, #f0f4f8);
-  /* Cor clara do seu tema */
+  background-color: var(--dark-color);
+  color: var(--light-color);
   padding: 6px 12px;
   border-radius: 5px;
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  /* ~12px-14px */
   line-height: 1.4;
   z-index: 10000;
-  /* Para garantir que fique sobre outros elementos */
   pointer-events: none;
-  /* Impede que o tooltip intercepte eventos do mouse */
   white-space: nowrap;
-  /* Evita quebra de linha no texto do tooltip */
-  box-shadow: var(--shadow, 0 2px 5px rgba(0, 0, 0, 0.1));
+  box-shadow: var(--shadow);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
   transform: translate(10px, -30px);
-  /* Posição inicial relativa ao cursor, ajustável */
 }
 
 .skill-tooltip.visible {

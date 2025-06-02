@@ -1,7 +1,8 @@
 /**
  * @file script.js
  * @description Main JavaScript file for Jefferson Firmino's portfolio.
- * Handles skill bar animations, contact form submission, mobile navigation, skill tooltips, and dynamic year update.
+ * Handles skill bar animations, contact form submission, mobile navigation, skill tooltips,
+ * dynamic year update, and unique visitor tracking.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -49,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
    * Skill Bar Animation
    * ------------------------------------------------------------------------
    */
-  // Store original widths globally or pass to tooltip function if needed for accuracy before animation
   const skillBarOriginalWidths = new Map();
 
   function initSkillBarAnimation() {
@@ -238,13 +238,127 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /**
    * ------------------------------------------------------------------------
+   * Unique Visitor Tracking and Counter
+   * ------------------------------------------------------------------------
+   */
+
+  // Funções auxiliares para Local Storage e Cookies
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
+  // Função principal para registrar o visitante e atualizar o contador
+  async function registerAndDisplayVisitorCount() {
+    const visitorCountElement = document.getElementById('visitor-count');
+    if (!visitorCountElement) {
+      console.error('Elemento #visitor-count não encontrado. Certifique-se de que o HTML está correto.');
+      return; // Não prossegue se o elemento não existe
+    }
+
+    // 1. Tentar identificar o usuário no Local Storage ou Cookie
+    let visitorId = localStorage.getItem('site_visitor_id');
+    let isNewVisitorSession = false; // Flag para informar ao backend se é uma "nova sessão" do navegador
+
+    if (!visitorId) {
+      // Se não houver ID no Local Storage, tenta no Cookie
+      visitorId = getCookie('site_visitor_id');
+      if (!visitorId) {
+        // Se ainda não houver, é um novo visitante (ou um antigo que limpou dados)
+        visitorId = crypto.randomUUID(); // Gera um UUID único
+        localStorage.setItem('site_visitor_id', visitorId);
+        setCookie('site_visitor_id', visitorId, 365); // Guarda por 1 ano
+        isNewVisitorSession = true; // Marca como nova sessão/novo visitante
+      } else {
+        // Encontrou no cookie, mas não no local storage (limpou local storage?)
+        localStorage.setItem('site_visitor_id', visitorId);
+      }
+    }
+
+    // 2. Tentar obter a localização aproximada pelo IP (usando uma API externa gratuita)
+    // NOTA: Para um uso profissional e para evitar limites de requisição no frontend,
+    // é ALTAMENTE recomendado que a chamada para a API GeoIP seja feita NO BACKEND.
+    // Aqui, é mantido no frontend para demonstração da captura de dados.
+    let country = 'Desconhecido';
+    let city = 'Desconhecido';
+    let ipAddressFromFrontend = 'Não capturado'; // O IP real e confiável deve vir do backend
+
+    try {
+      const ipGeoResponse = await fetch('https://ipapi.co/json/');
+      const ipGeoData = await ipGeoResponse.json();
+
+      if (ipGeoData && ipGeoData.ip) {
+        ipAddressFromFrontend = ipGeoData.ip;
+        country = ipGeoData.country_name || country;
+        city = ipGeoData.city || city;
+      }
+    } catch (error) {
+      console.warn('Erro ao obter localização ou IP via API externa no frontend:', error);
+    }
+
+    // 3. Enviar os dados para o seu Backend e obter a contagem
+    try {
+      const response = await fetch('/api/register-visit', { // Seu endpoint no backend
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          visitorId: visitorId,
+          // O IP real será capturado no backend (req.ip ou x-forwarded-for)
+          // Mas enviamos o capturado no frontend para fins de log ou fallback
+          ipAddressFromFrontend: ipAddressFromFrontend,
+          country: country,
+          city: city,
+          isNewVisitorSession: isNewVisitorSession,
+          userAgent: navigator.userAgent,
+          screenWidth: window.screen.width,
+          screenHeight: window.screen.height
+        }),
+      });
+
+      const data = await response.json();
+      console.log('Visita registrada:', data);
+
+      // Atualizar o contador no frontend com o valor retornado pelo backend
+      if (data.totalVisitors !== undefined) {
+        visitorCountElement.textContent = data.totalVisitors;
+      }
+
+    } catch (error) {
+      console.error('Erro ao enviar dados para o backend ou obter a contagem:', error);
+      visitorCountElement.textContent = 'Erro ao carregar'; // Indica falha
+    }
+  }
+
+  /**
+   * ------------------------------------------------------------------------
    * Initialize all modules
    * ------------------------------------------------------------------------
    */
   initSkillBarAnimation(); // Must run first to populate skillBarOriginalWidths
   initContactForm();
   initMobileNavigation();
-  initSkillTooltips();    // Initialize tooltips after skill bars might have their widths set
+  initSkillTooltips(); // Initialize tooltips after skill bars might have their widths set
   updateFooterYear();
+
+  // NOVO: Chamar a função de rastreamento de visitantes
+  registerAndDisplayVisitorCount();
 
 });
